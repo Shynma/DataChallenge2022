@@ -10,10 +10,9 @@ LOGGER = get_logger(__name__)
 # Dictionaires des onglets
 DEMOS = OrderedDict(
     [
-        ("Introduction", functions.intro),
-        ("Description des données", functions.globale),
-        ("Analyse d'un fichier audio", functions.indiv),
-        ("Modélisation", functions.modelisation)
+        ("Qui sommes-nous ?", functions.intro),
+        ("Notre projet", functions.projet),
+        ("Pour aller plus loin", functions.use_case)
     ]
 )
 
@@ -21,7 +20,7 @@ DEMOS = OrderedDict(
 def run():
     st.set_page_config(page_title="Data Challenge - Cigogne", page_icon="https://img.icons8.com/color/48/000000/stork.png", layout="wide", initial_sidebar_state="auto", menu_items=None)
     st.image("images/banniere_fixe.png", use_column_width=True)
-    demo_name = st.sidebar.selectbox("Choisir un onglet", list(DEMOS.keys()), 0)
+    demo_name = st.sidebar.selectbox("Menu", list(DEMOS.keys()), 0)
     demo = DEMOS[demo_name]
     demo()
 
