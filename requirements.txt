@@ -1,3 +1,14 @@
-altair
-pandas
 streamlit
+collections
+numpy
+pandas
+plotly
+matplotlib
+scipy
+math
+pywt
+parselmouth
+wave
+base64
+PIL
+tensorflow
