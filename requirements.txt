@@ -4,7 +4,6 @@ pandas
 plotly
 matplotlib
 scipy
-math
 pywt
 parselmouth
 wave
