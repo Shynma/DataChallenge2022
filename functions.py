@@ -6,11 +6,8 @@ import streamlit as st
 def intro():
   st.markdown("page intro")
 
-def globale():
+def projet():
   st.markdown("page globale")
 
-def indiv():
+def use_case():
   st.markdown("page ind")
-
-def modelisation():
-  st.markdown("page modelisation")
