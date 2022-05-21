@@ -4,7 +4,7 @@ pandas
 plotly
 matplotlib
 scipy
-pywt
+PyWavelets
 parselmouth
 wave
 base64
