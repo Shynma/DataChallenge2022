@@ -20,7 +20,7 @@ DEMOS = OrderedDict(
 # Fonctionnement de l'application
 def run():
     st.set_page_config(page_title="Data Challenge - Cigogne", page_icon="https://img.icons8.com/color/48/000000/stork.png", layout="wide", initial_sidebar_state="auto", menu_items=None)
-    st.image("Final_dataviz/images/banniere_fixe.png", use_column_width=True)
+    st.image("images/banniere_fixe.png", use_column_width=True)
     demo_name = st.sidebar.selectbox("Choisir un onglet", list(DEMOS.keys()), 0)
     demo = DEMOS[demo_name]
     demo()
