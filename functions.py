@@ -12,6 +12,7 @@ def intro():
 
 def projet():
   st.image("images/Data4good.png", use_column_width=True)
+  st.image("images/Data4good2.png", use_column_width=True)
 
 def use_case():
   st.image("images/banniere_fixe.png", use_column_width=True)
