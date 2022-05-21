@@ -1,38 +1,31 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
+# Import Packages
 import streamlit as st
+from streamlit.logger import get_logger
+import functions
+from collections import OrderedDict
+import streamlit.components.v1 as components
 
-"""
-# Welcome to Streamlit!
+LOGGER = get_logger(__name__)
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+# Dictionaires des onglets
+DEMOS = OrderedDict(
+    [
+        ("Introduction", functions.intro),
+        ("Description des données", functions.globale),
+        ("Analyse d'un fichier audio", functions.indiv),
+        ("Modélisation", functions.modelisation)
+    ]
+)
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+# Fonctionnement de l'application
+def run():
+    st.set_page_config(page_title="Data Challenge - Cigogne", page_icon="https://img.icons8.com/color/48/000000/stork.png", layout="wide", initial_sidebar_state="auto", menu_items=None)
+    st.image("Final_dataviz/images/banniere_fixe.png", use_column_width=True)
+    demo_name = st.sidebar.selectbox("Choisir un onglet", list(DEMOS.keys()), 0)
+    demo = DEMOS[demo_name]
+    demo()
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
 
-
-with st.echo(code_location='below'):
-    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
-
-    Point = namedtuple('Point', 'x y')
-    data = []
-
-    points_per_turn = total_points / num_turns
-
-    for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
-        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
-        x = radius * math.cos(angle)
-        y = radius * math.sin(angle)
-        data.append(Point(x, y))
-
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
+# Lancement de l'application
+if __name__ == "__main__":
+    run()
