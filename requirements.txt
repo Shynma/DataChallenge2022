@@ -7,4 +7,5 @@ scipy==1.7.2
 PyWavelets==1.2.0
 parselmouth==0.4.0
 wave
+setuptools>=58
 tensorflow==2.7.0
