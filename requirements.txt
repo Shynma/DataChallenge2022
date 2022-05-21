@@ -7,5 +7,4 @@ scipy
 PyWavelets
 parselmouth
 wave
-PIL
 tensorflow
