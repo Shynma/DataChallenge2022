@@ -10,7 +10,7 @@ def intro():
   st.image("images/Epsilon2.png", use_column_width=True)
 
 def projet():
-  st.markdown("page globale")
+  st.image("images/Data4good.png", use_column_width=True)
 
 def use_case():
   st.markdown("page ind")
