@@ -250,7 +250,7 @@ def ind_stat_freq(sampling_rate, samples) :
   n = len(samples)
   T = 1/sampling_rate
   normalize_samples = samples/max(samples)
-  yf = fft(normalize_samples)
+  yf = fft.fft(normalize_samples)
   xf = np.linspace(0, int(1/(2*T)), int(n/2))
   final_y = 2.0/n * np.abs(yf[:n//2])
   test_max = final_y >= 0.001
