@@ -46,7 +46,7 @@ def projet():
       ## Signal analogique VS numérique
     """
   )
-  col1, col2 = st.columns((1, 3))
+  col1, col2 = st.columns((1, 2))
   sampling = col1.slider(
       "Sampling rate : nombre d’échantillon par seconde"
       , min_value=1000
@@ -107,8 +107,8 @@ def demo_sampling_precision(sampling, bites):
   fig3.update_layout(
       autosize=True
       , margin=dict(l=100, r=0, t=0, b=0)
-      , width=600
-      , height = 300
+#       , width=600
+#       , height = 300
       , xaxis_title="Temps (en seconde)"
       , yaxis_title="Amplitude"
   )
