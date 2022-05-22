@@ -71,44 +71,44 @@ def use_case():
 #             Fonctions annexes              #
 ##############################################
 def demo_freq_amplitude(freq, amp,t=0.01):
-    S_rate = 44100
-    T = 1/S_rate
-    N = S_rate * t
-    omega = 2 * np.pi * freq
-    x = np.arange(N)*T
-    y = np.sin(omega * x)*amp
-    dataframe = pd.DataFrame({"x": x, "y": y})
-    fig = px.line(dataframe, x="x", y="y")
-    fig.update(layout_yaxis_range = [-10,10])
-    fig.update_layout(
-        autosize=True
-        , margin=dict(l=100, r=0, t=0, b=0)
+  S_rate = 44100
+  T = 1/S_rate
+  N = S_rate * t
+  omega = 2 * np.pi * freq
+  x = np.arange(N)*T
+  y = np.sin(omega * x)*amp
+  dataframe = pd.DataFrame({"x": x, "y": y})
+  fig = px.line(dataframe, x="x", y="y")
+  fig.update(layout_yaxis_range = [-10,10])
+  fig.update_layout(
+      autosize=True
+      , margin=dict(l=100, r=0, t=0, b=0)
 #         , width=600
 #         , height = 300
-        , xaxis_title="Temps (en seconde)"
-        , yaxis_title="Amplitude"
-    )
-    fig.update_traces(line_color='#35C4D7')
-    return(fig)
+      , xaxis_title="Temps (en seconde)"
+      , yaxis_title="Amplitude"
+  )
+  fig.update_traces(line_color='#35C4D7')
+  return(fig)
 
- def demo_sampling_precision(sampling, bites):
-    freq = 500
-    amp = 1
-    T = 1/sampling
-    t = 0.001
-    omega = 2 * np.pi * freq
-    x = np.arange(0,t,T)
-    y = np.round(np.sin(omega * x)*amp,bites)
-    dataframe = pd.DataFrame({"x": x, "y": y})
-    fig1 = demo_freq_amplitude(freq,amp,t)
-    fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=['red'], markers = True)
-    fig3 = go.Figure(data=fig1.data + fig2.data)
-    fig3.update_layout(
-        autosize=True
-        , margin=dict(l=100, r=0, t=0, b=0)
-        , width=600
-        , height = 300
-        , xaxis_title="Temps (en seconde)"
-        , yaxis_title="Amplitude"
-    )
-    return(fig3)
+def demo_sampling_precision(sampling, bites):
+  freq = 500
+  amp = 1
+  T = 1/sampling
+  t = 0.001
+  omega = 2 * np.pi * freq
+  x = np.arange(0,t,T)
+  y = np.round(np.sin(omega * x)*amp,bites)
+  dataframe = pd.DataFrame({"x": x, "y": y})
+  fig1 = demo_freq_amplitude(freq,amp,t)
+  fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=['red'], markers = True)
+  fig3 = go.Figure(data=fig1.data + fig2.data)
+  fig3.update_layout(
+      autosize=True
+      , margin=dict(l=100, r=0, t=0, b=0)
+      , width=600
+      , height = 300
+      , xaxis_title="Temps (en seconde)"
+      , yaxis_title="Amplitude"
+  )
+  return(fig3)
