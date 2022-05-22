@@ -15,7 +15,7 @@ def projet():
   st.image("images/Data4good2.png", use_column_width=True)
   
   st.markdown("# Petite histoire du son")
-  col1,col2 = st.columns((3,1))
+  col1,col2 = st.columns((1,1))
   col1.markdown(
     """
       Deux caractéristiques du son :
