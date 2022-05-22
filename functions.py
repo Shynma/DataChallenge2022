@@ -4,6 +4,9 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+color_blue = '#35C4D7'
+color_orange = '#FCA311'
+color_vert = '#CCE03D'
 ##############################################
 #            Fonctions des onglets           #
 ##############################################
@@ -106,7 +109,7 @@ def demo_freq_amplitude(freq, amp,t=0.01):
       , xaxis_title="Temps (en seconde)"
       , yaxis_title="Amplitude"
   )
-  fig.update_traces(line_color='#35C4D7')
+  fig.update_traces(line_color=color_blue)
   return(fig)
 
 def demo_sampling_precision(sampling, bites):
@@ -119,7 +122,7 @@ def demo_sampling_precision(sampling, bites):
   y = np.round(np.sin(omega * x)*amp,bites)
   dataframe = pd.DataFrame({"x": x, "y": y})
   fig1 = demo_freq_amplitude(freq,amp,t)
-  fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=['#FCA311'], markers = True)
+  fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=[color_orange], markers = True)
   fig3 = go.Figure(data=fig1.data + fig2.data)
   fig3.update_layout(
       autosize=True
@@ -157,8 +160,8 @@ def globale_stat():
 
 def globale_sunburst():
   code_couleur = {
-      'apprentissage' : '#7BEBFF'
-      , 'validation' : '#9183F5'
+      'apprentissage' : color_orange
+      , 'validation' : color_blue
   }
   base_sun = pd.read_csv('data/base_sun.csv')
   fig = px.sunburst(
