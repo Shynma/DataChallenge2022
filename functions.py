@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 
 ##############################################
 #            Fonctions des onglets           #
