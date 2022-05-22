@@ -18,7 +18,7 @@ def projet():
   st.image("images/Data4good2.png", use_column_width=True)
   
   st.markdown("# Petite histoire du son")
-  col1, col2 = st.columns((1, 3))
+  col1, col2 = st.columns((1, 2))
   freq = col1.slider(
       "Fréquence : nombre d’oscillations par seconde (Hz)"
       , min_value=220
