@@ -24,7 +24,54 @@ def projet():
     """
   )
   col2.image("https://docplayer.fr/docs-images/17/98421/images/3-0.png", width = 400)
-
+  
+  # Démo du fonctionnement des paramètres
+  col1, col2 = st.columns((1, 3))
+  col1.markdown(
+      """
+          ##### Démonstration 
+      """
+  )
+  freq = col1.slider(
+      "Fréquence (Hz)"
+      , min_value=220
+      , max_value=2000
+      , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
+  )
+  amp = col1.slider(
+      "Amplitude (dB)"
+      , min_value = 0
+      , max_value = 10
+      , value = 1
+      , format = "%d"
+  )
+  fig = demo_freq_amplitude(freq, amp)
+  col2.plotly_chart(fig)  
+  
 def use_case():
   st.image("images/banniere_fixe.png", use_column_width=True)
   st.image("images/UC.png", use_column_width=True)
+
+  
+############################################## 
+#             Fonctions annexes              #
+##############################################
+def demo_freq_amplitude(freq, amp,t=0.01):
+    S_rate = 44100
+    T = 1/S_rate
+    N = S_rate * t
+    omega = 2 * np.pi * freq
+    x = np.arange(N)*T
+    y = np.sin(omega * x)*amp
+    dataframe = pd.DataFrame({"x": x, "y": y})
+    fig = px.line(dataframe, x="x", y="y")
+    fig.update(layout_yaxis_range = [-10,10])
+    fig.update_layout(
+        autosize=True
+        , margin=dict(l=100, r=0, t=0, b=0)
+        , width=600
+        , height = 300
+        , xaxis_title="Temps (en seconde)"
+        , yaxis_title="Amplitude"
+    )
+    return(fig)
