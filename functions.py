@@ -17,9 +17,11 @@ def projet():
   st.markdown("# Petite histoire du son")
   col1,col2 = st.columns((1,3))
   col1.markdown(
-    Deux caractéristiques du son :
-    -	La ***fréquence*** (nombre d’oscillations par seconde) 
-    -	L’***amplitude*** (intensité des oscillations)
+    """
+      Deux caractéristiques du son :
+      -	La ***fréquence*** (nombre d’oscillations par seconde) 
+      -	L’***amplitude*** (intensité des oscillations)
+    """
   )
   col2.image("https://docplayer.fr/docs-images/17/98421/images/3-0.png", width = 400)
 
