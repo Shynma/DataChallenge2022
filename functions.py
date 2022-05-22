@@ -59,8 +59,8 @@ def projet():
       , value = 1
       , format = "%d"
   )
-#   fig = demo_sampling_precision(sampling, precision)
-#   col2.plotly_chart(fig)
+  fig = demo_sampling_precision(sampling, precision)
+  col2.plotly_chart(fig)
   
 def use_case():
   st.image("images/banniere_fixe.png", use_column_width=True)
@@ -101,7 +101,7 @@ def demo_freq_amplitude(freq, amp,t=0.01):
     y = np.round(np.sin(omega * x)*amp,bites)
     dataframe = pd.DataFrame({"x": x, "y": y})
     fig1 = demo_freq_amplitude(freq,amp,t)
-    fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=['red'], markers=True)
+    fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=['red'])
     fig3 = go.Figure(data=fig1.data + fig2.data)
     fig3.update_layout(
         autosize=True
