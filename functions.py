@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import scipy
 
 color_blue = '#35C4D7'
 color_orange = '#FCA311'
@@ -68,7 +69,7 @@ def projet():
   st.markdown(
     """
       # Description des données
-      ### Global
+      ### Généralités
      """
   )
   # Statistique générale
@@ -81,6 +82,30 @@ def projet():
   # Boxplot max frequency
   fig = globale_boxplot()
   st.plotly_chart(fig,use_container_width=True)
+  
+  st.markdown(
+    """
+      ### Individuel
+     """
+  )
+  uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
+  if uploaded_file:
+    # Chargement de l'audio + ecoute
+    st.audio(uploaded_file, format="audio/wav", start_time=0)
+    fp = wave.open(uploaded_file, 'r')
+    sampling_rate = fp.getframerate()
+    samples = fp.readframes(-1)
+    samples = np.frombuffer(samples, dtype='int16')
+   
+  # Affichage des stats
+  st.write("## Caractéristiques principales")
+  col1, col2, col3 = st.columns((1, 1, 1))
+  fig1 = ind_stat_sampling(sampling_rate)
+  col1.plotly_chart(fig1,use_container_width=True)
+  fig2 = ind_stat_nbbits(fp.getsampwidth())
+  col2.plotly_chart(fig2,use_container_width=True)
+  fig3 = ind_stat_freq(sampling_rate, samples)
+  col3.plotly_chart(fig3,use_container_width=True)
 
   
 def use_case():
@@ -183,5 +208,60 @@ def globale_boxplot():
       , color_discrete_map = {'sans oiseau' : color_blue, 'avec oiseau' : color_green}
       , title = "Distribution de la fréquence maximale selon la présence d'oiseau ou non"
       , labels = {'hasbird' : ""}
+  )
+  return(fig)
+
+def ind_stat_sampling(sampling_rate):
+  fig = go.Figure(
+      go.Indicator(
+          mode = "number",
+          value = round(sampling_rate/1000,1),
+          domain = {'x': [0, 1], 'y': [0, 1]},
+          title = {'text': "Sampling Rate"},
+          number={'suffix': "kHz"}
+      )
+  )
+  return(fig)
+
+def ind_stat_nbbits(sampwidth):
+  fig = go.Figure(
+      go.Indicator(
+          mode = "gauge+number",
+          value = sampwidth,
+          domain = {'x': [0, 1], 'y': [0, 1]},
+          title = {'text': "Sample depth"},
+          gauge = {
+              'axis': {'range': [None,32]},
+              'bar': {'color': "grey"},
+              'steps': [
+                  {'range': [0, 1], 'color': 'red'},
+                  {'range': [1, 4], 'color': 'orange'},
+                  {'range': [4,8], 'color': 'yellow'},
+                  {'range': [8,16], 'color': 'lightgreen'},
+                  {'range': [16,32], 'color': 'green'}
+                  ]
+          }
+      )
+  )
+  return(fig)
+
+def ind_stat_freq(sampling_rate, samples) :
+  n = len(samples)
+  T = 1/sampling_rate
+  normalize_samples = samples/max(samples)
+  yf = scipy.fft.fft(normalize_samples)
+  xf = np.linspace(0, int(1/(2*T)), int(n/2))
+  final_y = 2.0/n * np.abs(yf[:n//2])
+  test_max = final_y >= 0.001
+  frequency_max_amplitude = xf[max(np.where(test_max==max(test_max))[0])]
+
+  fig = go.Figure(
+      go.Indicator(
+          mode = "number",
+          value = frequency_max_amplitude,
+          domain = {'x': [0, 1], 'y': [0, 1]},
+          title = {'text': "Fréquence maximale"},
+          number={'suffix': "Hz"}
+      )
   )
   return(fig)
