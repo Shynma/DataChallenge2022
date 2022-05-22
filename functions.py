@@ -18,31 +18,15 @@ def projet():
   st.image("images/Data4good2.png", use_column_width=True)
   
   st.markdown("# Petite histoire du son")
-  col1,col2 = st.columns((1,1))
-  col1.markdown(
-    """
-      Deux caractéristiques du son :
-      -	La ***fréquence*** (nombre d’oscillations par seconde) 
-      -	L’***amplitude*** (intensité des oscillations)
-    """
-  )
-  col2.image("https://docplayer.fr/docs-images/17/98421/images/3-0.png", width = 400)
-  
-  # Démo du fonctionnement des paramètres
   col1, col2 = st.columns((1, 3))
-  col1.markdown(
-      """
-          ##### Démonstration 
-      """
-  )
   freq = col1.slider(
-      "Fréquence (Hz)"
+      "Fréquence : nombre d’oscillations par seconde (Hz)"
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
   amp = col1.slider(
-      "Amplitude (dB)"
+      "Amplitude : intensité des oscillations (dB)"
       , min_value = 0
       , max_value = 10
       , value = 1
