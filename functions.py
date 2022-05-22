@@ -180,7 +180,7 @@ def globale_boxplot():
       , x='hasbird'
       , y="Frequence max"
       , color="hasbird"
-      , color_discrete_map = {0 : color_orange, 1 : color_blue}
+      , color_discrete_map = {'sans oiseau' : color_orange, 'avec oiseau' : color_blue}
       , title = "Distribution de la fréquence maximale selon la présence d'oiseau ou non"
       , labels = {'hasbird' : ""}
   )
