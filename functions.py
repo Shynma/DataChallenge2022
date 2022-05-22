@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import scipy
+import wave
 
 color_blue = '#35C4D7'
 color_orange = '#FCA311'
