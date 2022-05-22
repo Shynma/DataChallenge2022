@@ -59,8 +59,8 @@ def projet():
       , value = 1
       , format = "%d"
   )
-  fig = demo_sampling_precision(sampling, precision)
-  col2.plotly_chart(fig)
+#   fig = demo_sampling_precision(sampling, precision)
+#   col2.plotly_chart(fig)
   
 def use_case():
   st.image("images/banniere_fixe.png", use_column_width=True)
