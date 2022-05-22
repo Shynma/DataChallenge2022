@@ -97,15 +97,15 @@ def projet():
     samples = fp.readframes(-1)
     samples = np.frombuffer(samples, dtype='int16')
    
-  # Affichage des stats
-  st.write("## Caractéristiques principales")
-  col1, col2, col3 = st.columns((1, 1, 1))
-  fig1 = ind_stat_sampling(sampling_rate)
-  col1.plotly_chart(fig1,use_container_width=True)
-  fig2 = ind_stat_nbbits(fp.getsampwidth())
-  col2.plotly_chart(fig2,use_container_width=True)
-  fig3 = ind_stat_freq(sampling_rate, samples)
-  col3.plotly_chart(fig3,use_container_width=True)
+    # Affichage des stats
+    st.write("## Caractéristiques principales")
+    col1, col2, col3 = st.columns((1, 1, 1))
+    fig1 = ind_stat_sampling(sampling_rate)
+    col1.plotly_chart(fig1,use_container_width=True)
+    fig2 = ind_stat_nbbits(fp.getsampwidth())
+    col2.plotly_chart(fig2,use_container_width=True)
+    fig3 = ind_stat_freq(sampling_rate, samples)
+    col3.plotly_chart(fig3,use_container_width=True)
 
   
 def use_case():
