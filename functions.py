@@ -61,4 +61,5 @@ def demo_freq_amplitude(freq, amp,t=0.01):
         , xaxis_title="Temps (en seconde)"
         , yaxis_title="Amplitude"
     )
+    fig.update_traces(line_color='#0000ff', line_width=5)
     return(fig)
