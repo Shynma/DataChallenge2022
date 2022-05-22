@@ -56,8 +56,8 @@ def demo_freq_amplitude(freq, amp,t=0.01):
     fig.update_layout(
         autosize=True
         , margin=dict(l=100, r=0, t=0, b=0)
-        , width=600
-        , height = 300
+#         , width=600
+#         , height = 300
         , xaxis_title="Temps (en seconde)"
         , yaxis_title="Amplitude"
     )
