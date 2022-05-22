@@ -158,3 +158,19 @@ def globale_stat():
       )
   fig = go.Figure(data = [trace1, trace2, trace3])
   return(fig)  
+
+def globale_sunburst():
+  code_couleur = {
+      'apprentissage' : '#7BEBFF'
+      , 'validation' : '#9183F5'
+  }
+  base_sun = pd.read_csv('data/base_sun.csv')
+  fig = px.sunburst(
+      base_sun
+      , path=["base", "hasbird"]
+      , values='nb audios'
+      , color='base', color_discrete_map = code_couleur
+      , title= "Répartition des audios selon leur base et la présence d'oiseau ou non"
+  )
+  fig.update_traces(textinfo="label+percent entry", textfont=dict(family="Arial Black"))
+  return(fig)
