@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 
 color_blue = '#35C4D7'
 color_orange = '#FCA311'
-color_vert = '#CCE03D'
+color_green = '#CCE03D'
 ##############################################
 #            Fonctions des onglets           #
 ##############################################
@@ -180,7 +180,7 @@ def globale_boxplot():
       , x='hasbird'
       , y="Frequence max"
       , color="hasbird"
-      , color_discrete_map = {'sans oiseau' : color_orange, 'avec oiseau' : color_vert}
+      , color_discrete_map = {'sans oiseau' : color_blue, 'avec oiseau' : color_green}
       , title = "Distribution de la fréquence maximale selon la présence d'oiseau ou non"
       , labels = {'hasbird' : ""}
   )
