@@ -102,7 +102,7 @@ def demo_sampling_precision(sampling, bites):
   y = np.round(np.sin(omega * x)*amp,bites)
   dataframe = pd.DataFrame({"x": x, "y": y})
   fig1 = demo_freq_amplitude(freq,amp,t)
-  fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=['red'], markers = True)
+  fig2 = px.line(dataframe, x="x", y="y", color_discrete_sequence=['#FCA311'], markers = True)
   fig3 = go.Figure(data=fig1.data + fig2.data)
   fig3.update_layout(
       autosize=True
