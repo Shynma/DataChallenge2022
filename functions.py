@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import scipy
+from scipy import fft
 import wave
 
 color_blue = '#35C4D7'
@@ -250,7 +250,7 @@ def ind_stat_freq(sampling_rate, samples) :
   n = len(samples)
   T = 1/sampling_rate
   normalize_samples = samples/max(samples)
-  yf = scipy.fft.fft(normalize_samples)
+  yf = fft(normalize_samples)
   xf = np.linspace(0, int(1/(2*T)), int(n/2))
   final_y = 2.0/n * np.abs(yf[:n//2])
   test_max = final_y >= 0.001
