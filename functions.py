@@ -21,7 +21,7 @@ def projet():
   st.markdown(
     """
       # Petite histoire du son
-      ## Caractéristiques
+      ### Caractéristiques
      """
   )
   col1, col2 = st.columns((1, 2))
@@ -43,7 +43,7 @@ def projet():
   
   st.markdown(
     """
-      ## Signal analogique VS numérique
+      ### Signal analogique VS numérique
     """
   )
   col1, col2 = st.columns((1, 2))
@@ -62,6 +62,27 @@ def projet():
   )
   fig = demo_sampling_precision(sampling, precision)
   col2.plotly_chart(fig)
+  st.markdown(
+    """
+      # Description des données
+      ### Global
+     """
+  )
+  # Statistique générale
+  col1, col2 = st.columns((1, 2))
+  fig1 = globale_stat()
+  col1.plotly_chart(fig1,use_container_width=True)
+  fig2 = globale_sunburst()
+  col2.plotly_chart(fig2,use_container_width=True)
+
+  # Histogramme durée
+  fig = globale_histogramme()
+  st.plotly_chart(fig,use_container_width=True)
+
+  # Boxplot max frequency
+  fig = globale_boxplot()
+  st.plotly_chart(fig,use_container_width=True)
+
   
 def use_case():
   st.image("images/banniere_fixe.png", use_column_width=True)
@@ -113,3 +134,27 @@ def demo_sampling_precision(sampling, bites):
       , yaxis_title="Amplitude"
   )
   return(fig3)
+
+def globale_stat():
+  base_sun = pd.read_csv('data/base_sun.csv')
+  base_histo = pd.read_csv('data/base_histo.csv')
+  trace1 = go.Indicator(
+          mode = "number",
+          value = base_sun['nb audios'].sum(),
+          title = {'text': "Nombre de fichiers audio"},
+          domain={'x': [0.0, 1], 'y': [0.60, 1]}
+      )
+  trace2 = go.Indicator(
+          mode = "number",
+          value = base_histo['framerate'].mean(),
+          title = {'text': "Sampling rate moyen"},
+          domain={'x': [0.0, 1], 'y': [0.3, 0.5]}
+      )
+  trace3 = go.Indicator(
+          mode = "number",
+          value = base_histo['sampwidth'].mean(),
+          title = {'text': "Sample depth moyen par sample"},
+          domain={'x': [0.0, 1], 'y': [0.0, 0.2]}
+      )
+  fig = go.Figure(data = [trace1, trace2, trace3])
+  return(fig)  
