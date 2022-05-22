@@ -75,10 +75,6 @@ def projet():
   fig2 = globale_sunburst()
   col2.plotly_chart(fig2,use_container_width=True)
 
-  # Histogramme durée
-  fig = globale_histogramme()
-  st.plotly_chart(fig,use_container_width=True)
-
   # Boxplot max frequency
   fig = globale_boxplot()
   st.plotly_chart(fig,use_container_width=True)
@@ -173,4 +169,15 @@ def globale_sunburst():
       , title= "Répartition des audios selon leur base et la présence d'oiseau ou non"
   )
   fig.update_traces(textinfo="label+percent entry", textfont=dict(family="Arial Black"))
+  return(fig)
+
+def globale_boxplot():
+  base_box = pd.read_csv('data/base_boxplot.csv')
+  fig = px.box(base_box
+      , x='hasbird'
+      , y="Frequence max"
+      , color="hasbird"
+      , title = "Distribution de la fréquence maximale selon la présence d'oiseau ou non"
+      , labels = {'hasbird' : ""}
+  )
   return(fig)
