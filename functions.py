@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from scipy import fft
 import wave
+import base64
 
 color_blue = '#35C4D7'
 color_orange = '#FCA311'
