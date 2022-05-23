@@ -176,7 +176,7 @@ def projet():
       # Performance
     """
   )
-  filename = "modele\historique_entrainement_70_epochs_over_70_14-12-2021-14-31-33.pkl"
+  filename = "modele/historique_entrainement_70_epochs_over_70_14-12-2021-14-31-33.pkl"
   fig = plot_perf(filename)
   col2.plotly_chart(fig,use_container_width=True)
   cm = [[0.44, 0.55],
