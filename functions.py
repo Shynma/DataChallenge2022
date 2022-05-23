@@ -147,7 +147,43 @@ def projet():
       f'<img src="data:image/gif;base64,{data_url}" alt="cat gif" width="100%">',
       unsafe_allow_html=True
   )
+
+  col1, col2 = st.columns((1, 2))
+  file_ = open("images/rnn.gif", "rb")
+  contents = file_.read()
+  data_url = base64.b64encode(contents).decode("utf-8")
+  file_.close()
+  col2.markdown(
+      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+      unsafe_allow_html=True
+  )
+  col1.write("""
+  ### Réseau récurrent
+    -	Adaptation du réseau de neurones aux données de taille variables (texte, audio)
+    -	Division de l’information en entrée en portions de taille fixe
+    - Prédiction sur une portion en utilisation ses données et le résultat sur les portions précédentes
+    -	Au passage de chaque portion, le réseau effectue son traitement en fonction de la portion courante et d’une agrégation des portions déjà traitées
+  """)
+  st.write("""
+  En combinant l'ensemble de ses structures, nous avons construit un CRNN pour notre tâche de prédiction.
+  Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
+  de l'oiseau.
+  """)
+  st.image("Final_dataviz/images/archi_reseau.png", width = 1000)
   
+  st.markdown(
+    """
+      # Performance
+    """
+  )
+  filename = "modele\historique_entrainement_70_epochs_over_70_14-12-2021-14-31-33.pkl"
+  fig = plot_perf(filename)
+  col2.plotly_chart(fig,use_container_width=True)
+  cm = [[0.44, 0.55],
+      [0.2, 0.8]]
+  fig = confusion_matrix(cm)
+  col2.plotly_chart(fig,use_container_width=True)
+    
   st.markdown(
     """
       # Application du modèle
@@ -329,4 +365,38 @@ def ind_stat_freq(sampling_rate, samples) :
           number={'suffix': "Hz"}
       )
   )
+  return(fig)
+
+def plot_perf(filename):
+  perf_df = pd.read_pickle(filename).reset_index()
+  fig = px.line(perf_df, x='epoch', y=["loss", "accuracy"])
+  return(fig)
+
+def confusion_matrix(cm):
+  labels = ['sans oiseau', 'avec oiseau']
+  title = 'Matrice de confusion'
+  data = go.Heatmap(z=cm, x = labels, y=labels, colorscale='YlGnBu')
+  # 'rdbu', 'rdgy', 'rdpu', 'rdylbu', 'rdylgn', 'redor', 'reds'
+  annotations = []
+  for i, row in enumerate(cm):
+      for j, value in enumerate(row):
+          annotations.append(
+              {
+                  "x": labels[j],
+                  "y": labels[i],
+                  "font": {"color": "grey",'size':20},
+                  "text": str(value),
+                  "xref": "x1",
+                  "yref": "y1",
+                  "showarrow": False
+              }
+          )
+  layout = {
+      "title": title,
+      "xaxis": {"title": "Valeur prédite"},
+      "yaxis": {"title": "Valeur réelle"},
+      "annotations": annotations
+
+  }
+  fig = go.Figure(data=data, layout=layout)
   return(fig)
