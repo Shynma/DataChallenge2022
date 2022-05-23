@@ -6,6 +6,9 @@ import plotly.graph_objects as go
 from scipy import fft
 import wave
 import base64
+from tensorflow.keras.models import load_model
+from tensorflow import convert_to_tensor
+import pywt
 
 color_blue = '#35C4D7'
 color_orange = '#FCA311'
@@ -187,7 +190,7 @@ def projet():
     
   st.markdown(
     """
-      # Application du modèle
+      # Application
     """
   )
   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
@@ -208,6 +211,13 @@ def projet():
     col2.plotly_chart(fig2,use_container_width=True)
     fig3 = ind_stat_freq(sampling_rate, samples)
     col3.plotly_chart(fig3,use_container_width=True)
+    
+    # Application du modèle
+    mpath = "modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"
+    p = apply_model(samples, mpath)
+    resultat = model_output(p)
+    print(p)
+    st.write(resultat)
 
   
 def use_case():
@@ -401,3 +411,39 @@ def confusion_matrix(cm):
   }
   fig = go.Figure(data=data, layout=layout)
   return(fig)
+
+def scalogram(data) :
+  wavelet = 'morl' # wavelet type: morlet
+  sr = 15000 # sampling frequency: 8KHz
+  widths = np.arange(1, 128) # scale
+  dt = 1/sr # timestep difference
+
+  # Create a filter to select frequencies between 1.5kHz and max
+  frequencies = pywt.scale2frequency(wavelet, widths) / dt # Get frequencies corresponding to scales
+  lower = ([x for x in range(len(widths)) if frequencies[x] < 1500])[0]
+  widths = widths[:lower] # Select scales in this frequency range
+  y = resample(data/max(data), sr) # Normalize + downsample
+  wavelet_coeffs, freqs = pywt.cwt(y, widths, wavelet = wavelet, sampling_period=dt)
+  return(wavelet_coeffs)
+
+
+def apply_model(data, model_path):
+  model = load_model(model_path)
+  wavelet_coeffs = convert_to_tensor([scalogram(data)]) ## correspond à nd_array (8,15000)
+  return model.predict(wavelet_coeffs)[0][0]
+
+def model_output(p):
+  res = ""
+  if (p < 0.1) : 
+      res = "Je peux dire avec une quasi certitude que je n'ai pas entendu d'oiseau."
+  elif (p >= 0.1) & (p < 0.4) :
+      res = "Sans vouloir m'avancer, je dirais qu'il n'y a pas d'oiseau dans cet audio."
+  elif (p >= 0.4) & (p < 0.5) : 
+      res = "J'ai du mal à me decider. Mais il ... n'y a pas d'oiseau ?"
+  elif (p >= 0.5) & (p < 0.6) :
+      res = "J'ai du mal à me decider. Mais il ... y a un oiseau ?"
+  elif (p >= 0.6) & (p < 0.9) :
+      res = "Je dirais qu'il y a un oiseau dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît."
+  elif (p >= 0.9) :
+      res = "S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !"
+  return(res)
