@@ -99,10 +99,10 @@ def projet():
       unsafe_allow_html=True
   )
   col2.write("""
-      **1. Application de la transformée en ondelettes :**
+      1. **Application de la transformée en ondelettes :**
         - inspiré de la transformée de Fourier
         - utilisation d'une petite ondulation pour estimer la fréquence et l'amplitude à chaque instant t
-      **2. Création du scalogramme :**
+      2. **Création du scalogramme :**
         - utilisation du temps (en X), de la fréquence (en Y) et de l'amplitude (en Z - couleur) pour obtenir une image en 2D
         - normalisation de la taille de l'image : 
           - discrétisation de la fréquence pour Y
