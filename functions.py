@@ -70,8 +70,7 @@ def projet():
   st.markdown(
     """
       # Description des données
-      ### Généralités
-     """
+    """
   )
   # Statistique générale
   col1, col2 = st.columns((1, 2))
@@ -86,8 +85,40 @@ def projet():
   
   st.markdown(
     """
-      ### Individuel
-     """
+      # Conversion d'un audio en image
+    """
+  )
+  col1, col2 = st.columns((2, 1))
+  file_ = open("images/Continuous_wavelet_transform.gif", "rb")
+  contents = file_.read()
+  data_url = base64.b64encode(contents).decode("utf-8")
+  file_.close()
+  col1.markdown(
+      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+      unsafe_allow_html=True
+  )
+  col2.write("""
+      1. Application de la **transformée en ondelettes** :
+        - inspiré de la transformée de Fourier
+        - utilisation d'une petite ondulation pour estimer la fréquence et l'amplitude à chaque instant t
+      2. Création du scalogramme :
+        - utilisation du temps (en X), de la fréquence (en Y) et de l'amplitude (en Z - couleur) pour obtenir une image en 2D
+        - normalisation de la taille de l'image : 
+          - discrétisation de la fréquence pour Y
+          - downsampling et resizing pour X
+  """)
+  
+  st.markdown(
+    """
+      # Modélisation
+    """
+  )
+  
+  
+  st.markdown(
+    """
+      # Application du modèle
+    """
   )
   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
   if uploaded_file:
