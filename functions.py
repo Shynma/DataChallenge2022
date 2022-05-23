@@ -169,7 +169,7 @@ def projet():
   Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
   de l'oiseau.
   """)
-  st.image("Final_dataviz/images/archi_reseau.png", width = 1000)
+  st.image("images/archi_reseau.png", width = 1000)
   
   st.markdown(
     """
