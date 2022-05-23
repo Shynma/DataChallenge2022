@@ -112,16 +112,17 @@ def projet():
   st.markdown(
     """
       # Modélisation
-      ### Réseau de neurones classique
     """
   )
   col1, col2 = st.columns((1, 1))
   col1.write("""
-  - S'inspire du fonctionnement du cerveau humain
-  - Possède 3 types de composants :
-    - neurones externes qui envoient des informations
-    - neurones externes qui reçoivent des information
-    - neurones internes qui connectent les deux couches de neurones externes entre elles
+    ### Réseau de neurones classique
+      - S'inspire du fonctionnement du cerveau humain
+      - Possède 3 types de composants :
+        - neurones externes qui envoient des informations
+        - neurones externes qui reçoivent des information
+        - neurones internes qui connectent les deux couches de neurones externes entre elles
+      - Aggrège et transforme l'information à chaque étape
   """)
   file_ = open("images/feed-forward-neural-network.gif", "rb")
   contents = file_.read()
@@ -129,6 +130,21 @@ def projet():
   file_.close()
   col2.markdown(
       f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+      unsafe_allow_html=True
+  )
+
+  col1, col2 = st.columns((2, 1))
+  col2.write("""
+    ### Réseau de neurones à convolution
+      - Prise en compte de la forte corrélation entre un pixel et ceux qui l'entourent
+      - Simplification de l'information en entrée en réduitant dimension et qualité tout en gardant les informations essentielles
+  """)
+  file_ = open("images/cnn_plus_pool.gif", "rb")
+  contents = file_.read()
+  data_url = base64.b64encode(contents).decode("utf-8")
+  file_.close()
+  col1.markdown(
+      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif" width="100%">',
       unsafe_allow_html=True
   )
   
