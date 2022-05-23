@@ -101,7 +101,7 @@ def projet():
   col2.write("""
       1. **Application de la transformée en ondelettes :**
         - inspiré de la transformée de Fourier
-        - utilisation d'une petite ondulation pour estimer la fréquence et l'amplitude à chaque instant t
+        - utilisation d'une petite ondulation (ici, Morlet) pour obtenir la fréquence et l'amplitude à chaque instant t
       2. **Création du scalogramme :**
         - utilisation du temps (en X), de la fréquence (en Y) et de l'amplitude (en Z - couleur) pour obtenir une image en 2D
         - normalisation de la taille de l'image : 
@@ -112,9 +112,25 @@ def projet():
   st.markdown(
     """
       # Modélisation
+      ### Réseau de neurones classique
     """
   )
-  
+  col1, col2 = st.columns((1, 1))
+  col1.write("""
+  - S'inspire du fonctionnement du cerveau humain
+  - Possède 3 types de composants :
+    - neurones externes qui envoient des informations
+    - neurones externes qui reçoivent des information
+    - neurones internes qui connectent les deux couches de neurones externes entre elles
+  """)
+  file_ = open("images/feed-forward-neural-network.gif", "rb")
+  contents = file_.read()
+  data_url = base64.b64encode(contents).decode("utf-8")
+  file_.close()
+  col2.markdown(
+      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+      unsafe_allow_html=True
+  )
   
   st.markdown(
     """
