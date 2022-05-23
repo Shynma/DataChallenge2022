@@ -5,3 +5,4 @@ plotly==5.4.0
 matplotlib==3.5.0
 scipy==1.7.2
 tensorflow==2.7.0
+pywavelets==1.2.0
