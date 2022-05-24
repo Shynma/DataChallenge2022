@@ -104,11 +104,11 @@ def projet():
   )
   col2.write("""
       1. **Application de la transformée en ondelettes :**
-        - inspiré de la transformée de Fourier
-        - utilisation d'une petite ondulation (ici, Morlet) pour obtenir la fréquence et l'amplitude à chaque instant t
+        - Inspiré de la transformée de Fourier
+        - Utilisation d'une petite ondulation (ici, Morlet) pour obtenir la fréquence et l'amplitude à chaque instant t
       2. **Création du scalogramme :**
-        - utilisation du temps (en X), de la fréquence (en Y) et de l'amplitude (en Z - couleur) pour obtenir une image en 2D
-        - normalisation de la taille de l'image : 
+        - Utilisation du temps (en X), de la fréquence (en Y) et de l'amplitude (en Z - couleur) pour obtenir une image en 2D
+        - Normalisation de la taille de l'image : 
           - discrétisation de la fréquence pour Y
           - downsampling et resizing pour X
   """)
@@ -141,7 +141,7 @@ def projet():
   col2.write("""
     ### Réseau de neurones à convolution
       - Prise en compte de la forte corrélation entre un pixel et ceux qui l'entourent
-      - Simplification de l'information en entrée en réduitant dimension et qualité tout en gardant les informations essentielles
+      - Simplification de l'information en entrée en réduisant dimension et qualité tout en gardant les informations essentielles
   """)
   file_ = open("images/cnn_plus_pool.gif", "rb")
   contents = file_.read()
@@ -166,7 +166,6 @@ def projet():
     -	Adaptation du réseau de neurones aux données de taille variables (texte, audio)
     -	Division de l’information en entrée en portions de taille fixe
     - Prédiction sur une portion en utilisation ses données et le résultat sur les portions précédentes
-    -	Au passage de chaque portion, le réseau effectue son traitement en fonction de la portion courante et d’une agrégation des portions déjà traitées
   """)
   st.write("""
   En combinant l'ensemble de ses structures, nous avons construit un CRNN pour notre tâche de prédiction.
