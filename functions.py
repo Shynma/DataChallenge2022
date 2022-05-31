@@ -403,7 +403,7 @@ def confusion_matrix(cm):
               {
                   "x": labels[j],
                   "y": labels[i],
-                  "font": {"color": "white",'size':20},",'size':20},
+                  "font": {"color": "white",'size':20},
                   "text": "{:.0f}%".format(value * 100),
                   "xref": "x1",
                   "yref": "y1",
