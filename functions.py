@@ -246,7 +246,9 @@ def demo_freq_amplitude(freq, amp,t=0.01):
       , yaxis_title="Amplitude"
       , hovermode='x unified'
   )
-  fig.update_traces(line_color=color_blue)
+  fig.update_traces(line_color=color_blue, hovertemplate='%{y:.2f} dB')
+  fig.data['showlegend'] = True
+  fig.data['name'] = 'Son analogique'
   return(fig)
 
 def demo_sampling_precision(sampling, bites):
