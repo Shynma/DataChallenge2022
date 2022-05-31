@@ -246,8 +246,8 @@ def demo_freq_amplitude(freq, amp,t=0.01):
       , yaxis_title="Amplitude"
       , hovermode='x unified'
   )
-  fig.update_traces(line_color=color_blue, hovertemplate='%{x:.2f} s <br>%{y:.2f} dB')
-  fig.data[0]['name'] = 'Amplitude'
+  fig.update_traces(line_color=color_blue, hovertemplate='%{x:.4f} s <br>%{y:.2f} dB')
+#   fig.data[0]['name'] = 'Amplitude'
   return(fig)
 
 def demo_sampling_precision(sampling, bites):
