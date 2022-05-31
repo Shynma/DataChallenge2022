@@ -247,8 +247,8 @@ def demo_freq_amplitude(freq, amp,t=0.01):
       , hovermode='x unified'
   )
   fig.update_traces(line_color=color_blue, hovertemplate='%{y:.2f} dB')
-  fig.data['showlegend'] = True
-  fig.data['name'] = 'Son analogique'
+  fig.data[0]['showlegend'] = True
+  fig.data[0]['name'] = 'Son analogique'
   return(fig)
 
 def demo_sampling_precision(sampling, bites):
