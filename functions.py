@@ -243,10 +243,10 @@ def demo_freq_amplitude(freq, amp,t=0.01):
       , width=600
       , height = 300
       , xaxis_title="Temps (en seconde)"
-      , yaxis_title="Amplitude"
-      , hovermode='x unified'
+#       , yaxis_title="Amplitude"
+#       , hovermode='x unified'
   )
-  fig.update_traces(line_color=color_blue, hovertemplate='%{x:.4f} s <br>%{y:.2f} dB')
+  fig.update_traces(line_color=color_blue, hovertemplate='Temps : %{x:.4f} s <br> Amplitude : %{y:.2f} dB')
 #   fig.data[0]['name'] = 'Amplitude'
   return(fig)
 
