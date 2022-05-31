@@ -268,7 +268,13 @@ def demo_sampling_precision(sampling, bites):
       , height = 300
       , xaxis_title="Temps (en seconde)"
       , yaxis_title="Amplitude"
+      , hovermode='x unified'
   )
+  fig3.update_traces(hovertemplate='%{y:.3f} dB')
+  fig3.data[0]['showlegend'] = True
+  fig3.data[0]['name'] = 'Son analogique'
+  fig3.data[1]['showlegend'] = True
+  fig3.data[1]['name'] = 'Son numerique'
   return(fig3)
 
 def globale_stat():
@@ -308,7 +314,7 @@ def globale_sunburst():
       , color='base', color_discrete_map = code_couleur
       , title= "Répartition des audios selon leur base et la présence d'oiseau ou non"
   )
-  fig.update_traces(textinfo="label+percent entry", textfont=dict(family="Arial Black"))
+  fig.update_traces(textinfo="label+percent entry", textfont=dict(family="Arial Black"), hovertemplate="Donnees %{id} (%{value} audios)")
   return(fig)
 
 def globale_boxplot():
@@ -381,6 +387,8 @@ def ind_stat_freq(sampling_rate, samples) :
 def plot_perf(filename):
   perf_df = pd.read_pickle(filename).reset_index()
   fig = px.line(perf_df, x='epoch', y=["loss", "accuracy"])
+  fig.update_traces(hovertemplate='%{y:.2f}')
+  fig.update_layout(hovermode='x unified', legend=dict(title='Metrics'))
   return(fig)
 
 def confusion_matrix(cm):
@@ -395,8 +403,8 @@ def confusion_matrix(cm):
               {
                   "x": labels[j],
                   "y": labels[i],
-                  "font": {"color": "grey",'size':20},
-                  "text": str(value),
+                  "font": {"color": ""white",'size':20},",'size':20},
+                  "text": "{:.0f}%".format(value * 100),
                   "xref": "x1",
                   "yref": "y1",
                   "showarrow": False
@@ -410,6 +418,8 @@ def confusion_matrix(cm):
 
   }
   fig = go.Figure(data=data, layout=layout)
+  fig.update_traces(hovertemplate='Classe réelle : %{y}<br>Classe prédite : %{x}')
+  fig.data[0].update(zmin=0, zmax=1)
   return(fig)
 
 def scalogram(data) :
