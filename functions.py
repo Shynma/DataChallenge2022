@@ -172,7 +172,6 @@ def projet():
   Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
   de l'oiseau.
   """)
-  st.image("images/archi_reseau.png", width = 1000)
   
   st.markdown(
     """
@@ -245,6 +244,7 @@ def demo_freq_amplitude(freq, amp,t=0.01):
       , height = 300
       , xaxis_title="Temps (en seconde)"
       , yaxis_title="Amplitude"
+      , hovermode='x unified'
   )
   fig.update_traces(line_color=color_blue)
   return(fig)
