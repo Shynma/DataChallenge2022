@@ -59,14 +59,16 @@ def projet():
     """
   )
   col1, col2 = st.columns((1, 2))
+  col1.markdown("**Sampling rate** : nombre d’échantillon par seconde")
   sampling = col1.slider(
-      "Sampling rate : nombre d’échantillon par seconde"
+      ""
       , min_value=1000
       , max_value=30000
       , value=20000, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
+  col1.markdown("**Sample depth** : précision d’un échantillon")
   precision = col1.slider(
-      "Sample depth : précision d’un échantillon"
+      ""
       , min_value = 0
       , max_value = 5
       , value = 1
@@ -102,7 +104,7 @@ def projet():
   
   st.markdown(
     """
-      ### Exploitation de l'image
+      ### Utilisation dans un modèle d'IA
     """
   )
   col1, col2 = st.columns((1, 1))
