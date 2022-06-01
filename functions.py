@@ -107,7 +107,7 @@ def projet():
   )
   col1, col2 = st.columns((1, 1))
   col1.write("""
-    ### Réseau de neurones classique
+    ##### Réseau de neurones classique
       - S'inspire du fonctionnement du cerveau humain
       - Possède 3 types de composants :
         - neurones externes qui envoient des informations
@@ -126,7 +126,7 @@ def projet():
 
   col1, col2 = st.columns((2, 1))
   col2.write("""
-    ### Réseau de neurones à convolution
+    ##### Réseau de neurones à convolution
       - Prise en compte de la forte corrélation entre un pixel et ceux qui l'entourent
       - Simplification de l'information en entrée en réduisant dimension et qualité tout en gardant les informations essentielles
   """)
@@ -149,7 +149,7 @@ def projet():
       unsafe_allow_html=True
   )
   col1.write("""
-  ### Réseau récurrent
+  ##### Réseau récurrent
     -	Adaptation du réseau de neurones aux données de taille variables (texte, audio)
     -	Division de l’information en entrée en portions de taille fixe
     - Prédiction sur une portion en utilisation ses données et le résultat sur les portions précédentes
