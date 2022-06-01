@@ -208,17 +208,17 @@ def projet():
   )
   
   option = st.selectbox("Sélection d'un audio de test",('Audio 1', 'Audio 2', 'Audio 3'))
-#   if option == 'Audio 1': 
-#     test_file = "data/00cc9afb-40da-4ca3-a4fe.wav"
-#   elif option == 'Audio 2':
-#     test_file = "data/0a0b783d-f9a3-4652-a01d.wav"
-#   elif option == "Audio 3' :
-#     test_file = "data/0a4e8000-574c-46b8-a847.wav"
-#   else :
-#     test_file = ""
-  print(option)
-#   if test_file != "" :
-#     st.audio(test_file, format="audio/wav", start_time=0)
+  if option == 'Audio 1': 
+    test_file = "data/00cc9afb-40da-4ca3-a4fe.wav"
+  elif option == 'Audio 2':
+    test_file = "data/0a0b783d-f9a3-4652-a01d.wav"
+  elif option == 'Audio 3' :
+    test_file = "data/0a4e8000-574c-46b8-a847.wav"
+  else :
+    test_file = ""
+  
+  if test_file != "" :
+    st.audio(test_file, format="audio/wav", start_time=0)
   
   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
   if uploaded_file:
