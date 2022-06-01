@@ -11,9 +11,9 @@ from tensorflow import convert_to_tensor
 import pywt
 from scipy.signal import resample
 
-color_blue = '#35C4D7'
-color_orange = '#FCA311'
-color_green = '#CCE03D'
+color_blue = '#00A8FF'
+color_orange = '#FFBA00'
+color_green = '#00E6A2'
 ##############################################
 #            Fonctions des onglets           #
 ##############################################
