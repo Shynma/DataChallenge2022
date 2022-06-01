@@ -19,8 +19,6 @@ color_green = '#00E6A2'
 ##############################################
 def intro():
   st.image("images/banniere_vivatech.png", use_column_width=True)
-#   st.image("images/Publicis.png", use_column_width=True)
-#   st.image("images/Publicis2.png", use_column_width=True)
   st.image("images/Epsilon0.png", use_column_width=True)
   st.image("images/Epsilon.png", use_column_width=True)
   st.image("images/Epsilon2.png", use_column_width=True)
@@ -75,7 +73,7 @@ def projet():
   fig = demo_sampling_precision(sampling, precision)
   col2.plotly_chart(fig)
   
-    st.markdown(
+  st.markdown(
     """
       ### Conversion vers une image
     """
