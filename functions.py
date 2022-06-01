@@ -35,14 +35,14 @@ def projet():
      """
   )
   col1, col2 = st.columns((1, 2))
-  col1.markdown("<sub>**Fréquence** : nombre d’oscillations par seconde (Hz)</sub>")
+  col1.markdown("**Fréquence** : nombre d’oscillations par seconde (Hz)")
   freq = col1.slider(
       ""
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
-  col1.markdown("<sub>**Amplitude** : intensité des oscillations (dB)</sub>")
+  col1.markdown("**Amplitude** : intensité des oscillations (dB)")
   amp = col1.slider(
       ""
       , min_value = 0
