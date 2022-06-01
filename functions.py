@@ -401,7 +401,7 @@ def ind_stat_freq(sampling_rate, samples) :
 
 def plot_perf(filename):
   perf_df = pd.read_pickle(filename).reset_index()
-  fig = px.line(perf_df, x='epoch', y=["loss", "accuracy"])
+  fig = px.line(perf_df, x='epoch', y=["loss", "accuracy"],color_discrete_sequence=[color_red, color_blue])
   fig.update_traces(hovertemplate='%{y:.2f}')
   fig.update_layout(hovermode='x unified', legend=dict(title='Metrics'))
   return(fig)
