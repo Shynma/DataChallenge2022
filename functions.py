@@ -18,7 +18,7 @@ color_green = '#CCE03D'
 #            Fonctions des onglets           #
 ##############################################
 def intro():
-  st.image("images/banniere_fixe.png", use_column_width=True)
+  st.image("images/banniere_vivatech.png", use_column_width=True)
 #   st.image("images/Publicis.png", use_column_width=True)
 #   st.image("images/Publicis2.png", use_column_width=True)
   st.image("images/Epsilon0.png", use_column_width=True)
@@ -31,7 +31,7 @@ def projet():
   
   st.markdown(
     """
-      # Petite histoire du son
+      # PETITE HISTOIRE DU SON
       ### Caractéristiques
      """
   )
@@ -75,7 +75,7 @@ def projet():
   col2.plotly_chart(fig)
   st.markdown(
     """
-      # Description des données
+      # DESCRIPTIONS DES DONNEES
     """
   )
   # Statistique générale
@@ -91,7 +91,7 @@ def projet():
   
   st.markdown(
     """
-      # Conversion d'un audio en image
+      # CONVERSION D'UNE IMAGE EN AUDIO
     """
   )
   col1, col2 = st.columns((2, 1))
@@ -116,7 +116,7 @@ def projet():
   
   st.markdown(
     """
-      # Modélisation
+      # MODELISATION
     """
   )
   col1, col2 = st.columns((1, 1))
@@ -176,7 +176,7 @@ def projet():
   
   st.markdown(
     """
-      # Performance
+      # PERFORMANCE
     """
   )
   filename = "modele/historique_entrainement_70_epochs_over_70_14-12-2021-14-31-33.pkl"
@@ -190,7 +190,7 @@ def projet():
     
   st.markdown(
     """
-      # Application
+      # APPLICATION
     """
   )
   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
