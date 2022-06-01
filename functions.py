@@ -35,8 +35,9 @@ def projet():
      """
   )
   col1, col2 = st.columns((1, 2))
+  col1.markdown("<b>Fréquence</b> : nombre d’oscillations par seconde (Hz)")
   freq = col1.slider(
-      "<b>Fréquence</b> : nombre d’oscillations par seconde (Hz)"
+      ""
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
