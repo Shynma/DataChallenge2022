@@ -319,7 +319,7 @@ def globale_stat():
 def globale_sunburst():
   code_couleur = {
       'apprentissage' : color_green
-      , 'validation' : color_blue2
+      , 'validation' : color_blue
   }
   base_sun = pd.read_csv('data/base_sun.csv')
   fig = px.sunburst(
