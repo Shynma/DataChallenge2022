@@ -11,7 +11,7 @@ from tensorflow import convert_to_tensor
 import pywt
 from scipy.signal import resample
 
-color_dark = '#000000'
+color_black = '#000000'
 color_blue0 = '#317087'
 color_blue = '#00A8FF'
 color_blue2 = '#30D1D4'
