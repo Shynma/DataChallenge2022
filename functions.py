@@ -32,19 +32,19 @@ def projet():
   
   st.markdown(
     """
-      # PETITE HISTOIRE DU SON
-      ### Caractéristiques
+      # ANALYSE D'UN AUDIO : DE LA THÉORIE ...
+      ### Petite histoire du son
      """
   )
   col1, col2 = st.columns((1, 2))
   freq = col1.slider(
-      "**Fréquence** : nombre d’oscillations par seconde (Hz)"
+      "<b>Fréquence</b> : nombre d’oscillations par seconde (Hz)"
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
   amp = col1.slider(
-      "**Amplitude** : intensité des oscillations (dB)"
+      "<b>Amplitude</b> : intensité des oscillations (dB)"
       , min_value = 0
       , max_value = 10
       , value = 1
@@ -55,7 +55,7 @@ def projet():
   
   st.markdown(
     """
-      ### Signal analogique VS numérique
+      ### Réalité vs Informatique
     """
   )
   col1, col2 = st.columns((1, 2))
@@ -74,25 +74,10 @@ def projet():
   )
   fig = demo_sampling_precision(sampling, precision)
   col2.plotly_chart(fig)
-  st.markdown(
-    """
-      # DESCRIPTIONS DES DONNEES
-    """
-  )
-  # Statistique générale
-  col1, col2 = st.columns((1, 2))
-  fig1 = globale_stat()
-  col1.plotly_chart(fig1,use_container_width=True)
-  fig2 = globale_sunburst()
-  col2.plotly_chart(fig2,use_container_width=True)
-
-  # Boxplot max frequency
-  fig = globale_boxplot()
-  st.plotly_chart(fig,use_container_width=True)
   
-  st.markdown(
+    st.markdown(
     """
-      # CONVERSION D'UNE IMAGE EN AUDIO
+      ### Conversion vers une image
     """
   )
   col1, col2 = st.columns((2, 1))
@@ -117,7 +102,7 @@ def projet():
   
   st.markdown(
     """
-      # MODELISATION
+      ### Exploitation de l'image
     """
   )
   col1, col2 = st.columns((1, 1))
@@ -174,6 +159,23 @@ def projet():
   Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
   de l'oiseau.
   """)
+  
+  
+  st.markdown(
+    """
+      # ANALYSE D'UN AUDIO : ... À LA PRATIQUE
+    """
+  )
+  # Statistique générale
+  col1, col2 = st.columns((1, 2))
+  fig1 = globale_stat()
+  col1.plotly_chart(fig1,use_container_width=True)
+  fig2 = globale_sunburst()
+  col2.plotly_chart(fig2,use_container_width=True)
+
+  # Boxplot max frequency
+  fig = globale_boxplot()
+  st.plotly_chart(fig,use_container_width=True)
   
   st.markdown(
     """
