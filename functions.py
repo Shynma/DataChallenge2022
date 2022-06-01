@@ -208,11 +208,11 @@ def projet():
   )
   option = st.selectbox("Sélection d'un audio de test",('Audio 1', 'Audio 2', 'Audio 3'))
   if option == 'Audio 1' : 
-    test_file = "data/00cc9afb-40da-4ca3-a4fe.wav'
+    test_file = "data/00cc9afb-40da-4ca3-a4fe.wav"
   elif option == 'Audio 2':
     test_file = "data/0a0b783d-f9a3-4652-a01d.wav"
   elif option == "Audio 3' :
-    test_file = 'data/0a4e8000-574c-46b8-a847.wav'
+    test_file = "data/0a4e8000-574c-46b8-a847.wav"
   else :
     test_file = ""
   
