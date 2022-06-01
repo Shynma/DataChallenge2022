@@ -11,9 +11,15 @@ from tensorflow import convert_to_tensor
 import pywt
 from scipy.signal import resample
 
+color_dark = '#000000'
+color_blue0 = '#317087'
 color_blue = '#00A8FF'
-color_orange = '#FFBA00'
+color_blue2 = '#30D1D4'
 color_green = '#00E6A2'
+color_orange = '#FFBA00'
+color_red = '#E93B23'
+
+
 ##############################################
 #            Fonctions des onglets           #
 ##############################################
@@ -403,8 +409,18 @@ def plot_perf(filename):
 def confusion_matrix(cm):
   labels = ['sans oiseau', 'avec oiseau']
   title = 'Matrice de confusion'
-  data = go.Heatmap(z=cm, x = labels, y=labels, colorscale='YlGnBu')
-  # 'rdbu', 'rdgy', 'rdpu', 'rdylbu', 'rdylgn', 'redor', 'reds'
+  
+  colorscale_epsilon = [
+    [0,color_red]
+    ,[0.2,color_orange]
+    ,[0.4,color_green]
+    ,[0.6,color_blue2]
+    ,[0.8,color_blue]
+    ,[1,color_blue0]
+  ]
+  
+  data = go.Heatmap(z=cm, x = labels, y=labels, colorscale=colorscale_epsilon)
+  # 'rdbu', 'rdgy', 'rdpu', 'rdylbu', 'rdylgn', 'redor', 'reds', 'YlGnBu'
   annotations = []
   for i, row in enumerate(cm):
       for j, value in enumerate(row):
