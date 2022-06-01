@@ -35,7 +35,7 @@ def projet():
      """
   )
   col1, col2 = st.columns((1, 2))
-  col1.markdown("<b>Fréquence</b> : nombre d’oscillations par seconde (Hz)")
+  col1.markdown("**Fréquence** : nombre d’oscillations par seconde (Hz)")
   freq = col1.slider(
       ""
       , min_value=220
