@@ -156,16 +156,12 @@ def projet():
     -	Division de l’information en entrée en portions de taille fixe
     - Prédiction sur une portion en utilisation ses données et le résultat sur les portions précédentes
   """)
-  st.write("""
-  En combinant l'ensemble de ses structures, nous avons construit un CRNN pour notre tâche de prédiction.
-  Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
-  de l'oiseau.
-  """)
-  
+ 
   
   st.markdown(
     """
       # ANALYSE D'UN AUDIO : ... À LA PRATIQUE
+      ### Description des données
     """
   )
   # Statistique générale
@@ -181,9 +177,15 @@ def projet():
   
   st.markdown(
     """
-      # PERFORMANCE
+      ### Modélisation
     """
   )
+  st.write("""
+  En combinant l'ensemble de ses structures, nous avons construit un CRNN pour notre tâche de prédiction.
+  Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
+  de l'oiseau.
+  """)
+  
   filename = "modele/historique_entrainement_70_epochs_over_70_14-12-2021-14-31-33.pkl"
   fig = plot_perf(filename)
   col1, col2 = st.columns((1, 1))
@@ -195,7 +197,7 @@ def projet():
     
   st.markdown(
     """
-      # APPLICATION
+      ### Application
     """
   )
   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
