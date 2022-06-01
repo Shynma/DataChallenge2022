@@ -18,7 +18,7 @@ color_green = '#CCE03D'
 #            Fonctions des onglets           #
 ##############################################
 def intro():
-  st.image("images/banniere_fixe.png", use_column_width=True)
+  st.image("images/banniere_vivatech.png", use_column_width=True)
 #   st.image("images/Publicis.png", use_column_width=True)
 #   st.image("images/Publicis2.png", use_column_width=True)
   st.image("images/Epsilon0.png", use_column_width=True)
@@ -221,7 +221,7 @@ def projet():
 
   
 def use_case():
-  st.image("images/banniere_fixe.png", use_column_width=True)
+  st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/UC.png", use_column_width=True)
 
   
