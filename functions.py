@@ -37,13 +37,13 @@ def projet():
   )
   col1, col2 = st.columns((1, 2))
   freq = col1.slider(
-      "Fréquence : nombre d’oscillations par seconde (Hz)"
+      "**Fréquence** : nombre d’oscillations par seconde (Hz)"
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
   amp = col1.slider(
-      "Amplitude : intensité des oscillations (dB)"
+      "**Amplitude** : intensité des oscillations (dB)"
       , min_value = 0
       , max_value = 10
       , value = 1
