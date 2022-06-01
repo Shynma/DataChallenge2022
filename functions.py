@@ -26,6 +26,7 @@ def intro():
   st.image("images/Epsilon2.png", use_column_width=True)
 
 def projet():
+  st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/Data4good.png", use_column_width=True)
   st.image("images/Data4good2.png", use_column_width=True)
   
@@ -221,7 +222,7 @@ def projet():
 
   
 def use_case():
-  st.image("images/banniere_fixe.png", use_column_width=True)
+  st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/UC.png", use_column_width=True)
 
   
