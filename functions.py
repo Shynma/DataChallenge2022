@@ -219,7 +219,7 @@ def projet():
   
   if test_file != "" :
     st.audio(test_file, format="audio/wav", start_time=0)
-    fp = wave.open(uploaded_file, 'r')
+    fp = wave.open(test_file, 'r')
     sampling_rate = fp.getframerate()
     samples = fp.readframes(-1)
     samples = np.frombuffer(samples, dtype='int16')
