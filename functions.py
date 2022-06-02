@@ -241,33 +241,33 @@ def projet():
     print(p)
     st.write(resultat)
   
-  uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
-  if uploaded_file:
-    # Chargement de l'audio + ecoute
-    st.audio(uploaded_file, format="audio/wav", start_time=0)
-    fp = wave.open(uploaded_file, 'r')
-    sampling_rate = fp.getframerate()
-    samples = fp.readframes(-1)
-    samples = np.frombuffer(samples, dtype='int16')
+#   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
+#   if uploaded_file:
+#     # Chargement de l'audio + ecoute
+#     st.audio(uploaded_file, format="audio/wav", start_time=0)
+#     fp = wave.open(uploaded_file, 'r')
+#     sampling_rate = fp.getframerate()
+#     samples = fp.readframes(-1)
+#     samples = np.frombuffer(samples, dtype='int16')
    
-    # Affichage des stats
-    st.write("## Caractéristiques principales")
-    col1, col2, col3 = st.columns((1, 1, 1))
-    fig1 = ind_stat_sampling(sampling_rate)
-    col1.plotly_chart(fig1,use_container_width=True)
-    fig2 = ind_stat_nbbits(fp.getsampwidth())
-    col2.plotly_chart(fig2,use_container_width=True)
-    fig3 = ind_stat_freq(sampling_rate, samples)
-    col3.plotly_chart(fig3,use_container_width=True)
+#     # Affichage des stats
+#     st.write("## Caractéristiques principales")
+#     col1, col2, col3 = st.columns((1, 1, 1))
+#     fig1 = ind_stat_sampling(sampling_rate)
+#     col1.plotly_chart(fig1,use_container_width=True)
+#     fig2 = ind_stat_nbbits(fp.getsampwidth())
+#     col2.plotly_chart(fig2,use_container_width=True)
+#     fig3 = ind_stat_freq(sampling_rate, samples)
+#     col3.plotly_chart(fig3,use_container_width=True)
     
-    # Application du modèle
-    mpath = "modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"
-    p = apply_model(samples, mpath)
-    resultat = model_output(p)
-    print(p)
-    st.write(resultat)
+#     # Application du modèle
+#     mpath = "modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"
+#     p = apply_model(samples, mpath)
+#     resultat = model_output(p)
+#     print(p)
+#     st.write(resultat)
 
-  
+
 def use_case():
   st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/UC.png", use_column_width=True)
