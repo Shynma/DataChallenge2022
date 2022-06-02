@@ -239,7 +239,7 @@ def projet():
     p = apply_model(samples, mpath)
     resultat = model_output(p)
     st.write("##### Prédiction")
-    st.write(resultat)
+    st.markdown(resultat)
   
 #   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
 #   if uploaded_file:
