@@ -225,7 +225,7 @@ def projet():
     samples = np.frombuffer(samples, dtype='int16')
    
     # Affichage des stats
-    st.write("## Caractéristiques principales")
+    st.write("##### Caractéristiques")
     col1, col2, col3 = st.columns((1, 1, 1))
     fig1 = ind_stat_sampling(sampling_rate)
     col1.plotly_chart(fig1,use_container_width=True)
@@ -238,7 +238,7 @@ def projet():
     mpath = "modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"
     p = apply_model(samples, mpath)
     resultat = model_output(p)
-    print(p)
+    st.write("##### Prédiction")
     st.write(resultat)
   
 #   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
