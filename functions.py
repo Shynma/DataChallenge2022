@@ -505,15 +505,15 @@ def apply_model(data, model_path):
 def model_output(p):
   res = ""
   if (p < 0.1) : 
-      res = """<span style="color:"""+color_blue+"""">Je peux dire avec une quasi certitude que je n'ai pas entendu d'oiseau.</span>"""
+      res = """Je peux dire avec une quasi certitude que je n'ai <span style="color:"""+color_red+"""">pas entendu d'oiseau.</span>"""
   elif (p >= 0.1) & (p < 0.4) :
-      res = "Sans vouloir m'avancer, je dirais qu'il n'y a pas d'oiseau dans cet audio."
+      res = """Sans vouloir m'avancer, je dirais qu'il n'y a <span style="color:"""+color_orange+"""">pas d'oiseau dans cet audio.</span>"""
   elif (p >= 0.4) & (p < 0.5) : 
-      res = "J'ai du mal à me decider. Mais il ... n'y a pas d'oiseau ?"
+      res = """J'ai du mal à me decider. Mais il ... n'y a <span style="color:"""+color_green+"""">pas d'oiseau ?</span>"""
   elif (p >= 0.5) & (p < 0.6) :
-      res = "J'ai du mal à me decider. Mais il ... y a un oiseau ?"
+      res = """J'ai du mal à me decider. Mais il ... <span style="color:"""+color_blue2+"""">y a un oiseau ?</span>"""
   elif (p >= 0.6) & (p < 0.9) :
-      res = "Je dirais qu'il y a un oiseau dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît."
+      res = """Je dirais qu'il <span style="color:"""+color_blue+"""">y a un oiseau</span> dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît."""
   elif (p >= 0.9) :
-      res = "S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !"
+      res = """<span style="color:"""+color_blue0+"""">S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !</span>"""
   return(res)
