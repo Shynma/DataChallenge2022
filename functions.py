@@ -505,7 +505,7 @@ def apply_model(data, model_path):
 def model_output(p):
   res = ""
   if (p < 0.1) : 
-      res = """<span style="color:blue">Je peux dire avec une quasi certitude que je n'ai pas entendu d'oiseau.</span>"""
+      res = """<span style="color:"""+color_blue+"""">Je peux dire avec une quasi certitude que je n'ai pas entendu d'oiseau.</span>"""
   elif (p >= 0.1) & (p < 0.4) :
       res = "Sans vouloir m'avancer, je dirais qu'il n'y a pas d'oiseau dans cet audio."
   elif (p >= 0.4) & (p < 0.5) : 
