@@ -402,11 +402,11 @@ def ind_stat_nbbits(sampwidth):
               'axis': {'range': [None,32]},
               'bar': {'color': "grey"},
               'steps': [
-                  {'range': [0, 1], 'color': 'red'},
-                  {'range': [1, 4], 'color': 'orange'},
-                  {'range': [4,8], 'color': 'yellow'},
-                  {'range': [8,16], 'color': 'lightgreen'},
-                  {'range': [16,32], 'color': 'green'}
+                  {'range': [0, 1], 'color': color_red},
+                  {'range': [1, 4], 'color': color_orange},
+                  {'range': [4,8], 'color': color_green},
+                  {'range': [8,16], 'color': color_blue2},
+                  {'range': [16,32], 'color': color_blue}
                   ]
           }
       )
