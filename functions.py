@@ -271,7 +271,7 @@ def projet():
 
 def use_case():
   st.image("images/banniere_vivatech.png", use_column_width=True)
-  st.image("images/UC.png", use_column_width=True)
+  st.image("images/use_case.png", use_column_width=True)
 
   
 ############################################## 
