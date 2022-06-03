@@ -19,7 +19,7 @@ color_green = '#00E6A2'
 color_orange = '#FFBA00'
 color_red = '#E93B23'
 
-height_carac = 250
+height_carac = 300
 
 ##############################################
 #            Fonctions des onglets           #
