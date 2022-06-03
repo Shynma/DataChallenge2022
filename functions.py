@@ -33,13 +33,12 @@ def intro():
 
 def projet():
   st.image("images/banniere_vivatech.png", use_column_width=True)
-  st.image("images/Data4good.png", use_column_width=True)
-  st.image("images/Data4good2.png", use_column_width=True)
+  st.image("images/contexte.png", use_column_width=True)
   
   st.markdown(
     """
       # ANALYSE D'UN AUDIO : DE LA THÉORIE ...
-      ### Petite histoire du son
+      ### PETITE HISTOIRE DU SON
      """
   )
   col1, col2 = st.columns((1, 2))
@@ -63,7 +62,7 @@ def projet():
   
   st.markdown(
     """
-      ### Réalité vs Informatique
+      ### RÉALITÉ VS INFORMATIQUE
     """
   )
   col1, col2 = st.columns((1, 2))
@@ -87,7 +86,7 @@ def projet():
   
   st.markdown(
     """
-      ### Conversion vers une image
+      ### CONVERSION VERS UNE IMAGE
     """
   )
   col1, col2 = st.columns((2, 1))
@@ -112,7 +111,7 @@ def projet():
   
   st.markdown(
     """
-      ### Utilisation dans un modèle d'IA
+      ### UTILISATION D'UN MODÈLE D'IA
     """
   )
   col1, col2 = st.columns((1, 1))
@@ -169,7 +168,7 @@ def projet():
   st.markdown(
     """
       # ANALYSE D'UN AUDIO : ... À LA PRATIQUE
-      ### Description des données
+      ### DESCRIPTION DES DONNÉES
     """
   )
   # Statistique générale
@@ -185,7 +184,7 @@ def projet():
   
   st.markdown(
     """
-      ### Modélisation
+      ### MODÉLISATION
     """
   )
   st.write("""
@@ -205,7 +204,7 @@ def projet():
     
   st.markdown(
     """
-      ### Application
+      ### APPLICATION
     """
   )
   
