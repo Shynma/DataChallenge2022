@@ -187,8 +187,8 @@ def projet():
       ### MODÉLISATION
     """
   )
-  st.write("""
-  En combinant l'ensemble de ses structures, nous avons construit un CRNN pour notre tâche de prédiction.
+  st.markdown("""
+  En combinant l'ensemble de ses structures, nous avons construit un **CRNN** pour notre tâche de prédiction.
   Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
   de l'oiseau.
   """)
