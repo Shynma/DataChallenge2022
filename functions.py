@@ -390,6 +390,7 @@ def ind_stat_sampling(sampling_rate):
           number={'suffix': "kHz"}
       )
   )
+  fig.update_layout(height=500)
   return(fig)
 
 def ind_stat_nbbits(sampwidth):
@@ -412,6 +413,7 @@ def ind_stat_nbbits(sampwidth):
           }
       )
   )
+  fig.update_layout(height=500)
   return(fig)
 
 def ind_stat_freq(sampling_rate, samples) :
@@ -433,6 +435,7 @@ def ind_stat_freq(sampling_rate, samples) :
           number={'suffix': "Hz"}
       )
   )
+  fig.update_layout(height=500)
   return(fig)
 
 def plot_perf(filename):
