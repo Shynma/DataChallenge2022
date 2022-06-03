@@ -19,6 +19,7 @@ color_green = '#00E6A2'
 color_orange = '#FFBA00'
 color_red = '#E93B23'
 
+height_carac = 300
 
 ##############################################
 #            Fonctions des onglets           #
@@ -390,7 +391,7 @@ def ind_stat_sampling(sampling_rate):
           number={'suffix': "kHz"}
       )
   )
-  fig.update_layout(height=500)
+  fig.update_layout(height=height_carac)
   return(fig)
 
 def ind_stat_nbbits(sampwidth):
@@ -413,7 +414,7 @@ def ind_stat_nbbits(sampwidth):
           }
       )
   )
-  fig.update_layout(height=500)
+  fig.update_layout(height=height_carac)
   return(fig)
 
 def ind_stat_freq(sampling_rate, samples) :
@@ -435,7 +436,7 @@ def ind_stat_freq(sampling_rate, samples) :
           number={'suffix': "Hz"}
       )
   )
-  fig.update_layout(height=500)
+  fig.update_layout(height=height_carac)
   return(fig)
 
 def plot_perf(filename):
