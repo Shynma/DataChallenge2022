@@ -116,7 +116,7 @@ def projet():
   )
   col1, col2 = st.columns((1, 1))
   col1.write("""
-    ##### Réseau de neurones classique
+    ##### RÉSEAU DE NEURONES CLASSIQUE
       - S'inspire du fonctionnement du cerveau humain
       - Possède 3 types de composants :
         - neurones externes qui envoient des informations
@@ -135,7 +135,7 @@ def projet():
 
   col1, col2 = st.columns((2, 1))
   col2.write("""
-    ##### Réseau de neurones à convolution
+    ##### RÉSEAU DE NEURONES À CONVOLUTION
       - Prise en compte de la forte corrélation entre un pixel et ceux qui l'entourent
       - Simplification de l'information en entrée en réduisant dimension et qualité tout en gardant les informations essentielles
   """)
@@ -158,7 +158,7 @@ def projet():
       unsafe_allow_html=True
   )
   col1.write("""
-  ##### Réseau récurrent
+  ##### RÉSEAU RÉCURRENT
     -	Adaptation du réseau de neurones aux données de taille variables (texte, audio)
     -	Division de l’information en entrée en portions de taille fixe
     - Prédiction sur une portion en utilisation ses données et le résultat sur les portions précédentes
@@ -226,7 +226,7 @@ def projet():
     samples = np.frombuffer(samples, dtype='int16')
    
     # Affichage des stats
-    st.write("##### Caractéristiques")
+    st.write("##### CARACTÉRISITIQUES")
     col1, col2, col3 = st.columns((1, 1, 1))
     fig1 = ind_stat_sampling(sampling_rate)
     col1.plotly_chart(fig1,use_container_width=True)
@@ -239,7 +239,7 @@ def projet():
     mpath = "modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"
     p = apply_model(samples, mpath)
     resultat = model_output(p)
-    st.write("##### Prédiction")
+    st.write("##### PRÉDICTION")
     st.markdown(resultat,unsafe_allow_html=True)
   
 #   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
