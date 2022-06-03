@@ -26,6 +26,7 @@ color_red = '#E93B23'
 def intro():
   st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/Epsilon0.png", use_column_width=True)
+  st.markdown('#')
   st.image("images/data_science.png", use_column_width=True)
 
 def projet():
