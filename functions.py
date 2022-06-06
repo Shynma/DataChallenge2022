@@ -243,7 +243,7 @@ def projet():
     st.write("##### PRÉDICTION")
     col1, col2, col3 = st.columns(3)
     col1.write(' ')
-    col2.image("images/fleche.png")
+    col2.image("images/fleche2.png")
     col3.write(' ')
     st.markdown(resultat,unsafe_allow_html=True)
   
