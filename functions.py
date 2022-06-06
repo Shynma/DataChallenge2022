@@ -509,17 +509,17 @@ def apply_model(data, model_path):
   return model.predict(wavelet_coeffs)[0][0]
 
 def model_output(p):
-  res = ""
+  res = "<div style="text-align: center">{}</div>"
   if (p < 0.1) : 
-      res = """Je peux dire avec une quasi certitude que je n'ai <span style="color:"""+color_red+"""">pas entendu d'oiseau.</span>"""
+      res = res.format("""Je peux dire avec une quasi certitude que je n'ai <span style="color:"""+color_red+"""">pas entendu d'oiseau.</span>""")
   elif (p >= 0.1) & (p < 0.4) :
-      res = """Sans vouloir m'avancer, je dirais qu'il n'y a <span style="color:"""+color_orange+"""">pas d'oiseau dans cet audio.</span>"""
+      res = res.format("""Sans vouloir m'avancer, je dirais qu'il n'y a <span style="color:"""+color_orange+"""">pas d'oiseau dans cet audio.</span>""")
   elif (p >= 0.4) & (p < 0.5) : 
-      res = """J'ai du mal à me decider. Mais il ... n'y a <span style="color:"""+color_green+"""">pas d'oiseau ?</span>"""
+      res = res.format("""J'ai du mal à me decider. Mais il ... n'y a <span style="color:"""+color_green+"""">pas d'oiseau ?</span>""")
   elif (p >= 0.5) & (p < 0.6) :
-      res = """J'ai du mal à me decider. Mais il ... <span style="color:"""+color_blue2+"""">y a un oiseau ?</span>"""
+      res = res.format("""J'ai du mal à me decider. Mais il ... <span style="color:"""+color_blue2+"""">y a un oiseau ?</span>""")
   elif (p >= 0.6) & (p < 0.9) :
-      res = """Je dirais qu'il <span style="color:"""+color_blue+"""">y a un oiseau</span> dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît."""
+      res = res.format("""Je dirais qu'il <span style="color:"""+color_blue+"""">y a un oiseau</span> dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît.""")
   elif (p >= 0.9) :
-      res = """<span style="color:"""+color_blue0+"""">S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !</span>"""
+      res = res.format("""<span style="color:"""+color_blue0+"""">S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !</span>""")
   return(res)
