@@ -241,7 +241,7 @@ def projet():
     p = apply_model(samples, mpath)
     resultat = model_output(p)
     st.write("##### PRÉDICTION")
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns((2, 1, 2))
     col1.write(' ')
     col2.image("images/fleche2.png")
     col3.write(' ')
