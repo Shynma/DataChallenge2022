@@ -241,7 +241,7 @@ def projet():
     p = apply_model(samples, mpath)
     resultat = model_output(p)
     st.write("##### PRÉDICTION")
-    st.image("images/fleche.png", use_column_width=True)
+    st.image("images/fleche.png")
     st.markdown(resultat,unsafe_allow_html=True)
   
 #   uploaded_file = st.file_uploader("Choisir un fichier audio à analyser", type = ["WAV", "AIF", "MP3", "MID"])
