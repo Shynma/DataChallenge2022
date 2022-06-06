@@ -227,7 +227,7 @@ def projet():
     samples = np.frombuffer(samples, dtype='int16')
    
     # Affichage des stats
-    st.write("##### CARACTÉRISITIQUES")
+    st.write("##### CARACTÉRISITIQUES DE L'AUDIO")
     col1, col2, col3 = st.columns((1, 1, 1))
     fig1 = ind_stat_sampling(sampling_rate)
     col1.plotly_chart(fig1,use_container_width=True)
