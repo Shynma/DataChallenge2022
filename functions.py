@@ -509,7 +509,7 @@ def apply_model(data, model_path):
   return model.predict(wavelet_coeffs)[0][0]
 
 def model_output(p):
-  res = "<div style="text-align: center">{}</div>"
+  res = """<div style="text-align: center">{}</div>"""
   if (p < 0.1) : 
       res = res.format("""Je peux dire avec une quasi certitude que je n'ai <span style="color:"""+color_red+"""">pas entendu d'oiseau.</span>""")
   elif (p >= 0.1) & (p < 0.4) :
