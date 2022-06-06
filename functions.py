@@ -240,7 +240,7 @@ def projet():
     mpath = "modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"
     p = apply_model(samples, mpath)
     resultat = model_output(p)
-    st.markdown("""<div style="text-align: center">{}</div>""".format("##### PRÉDICTION"),unsafe_allow_html=True)
+    st.markdown("""##### <div style="text-align: center">{}</div>""".format("PRÉDICTION"),unsafe_allow_html=True)
     col1, col2, col3 = st.columns((2, 1, 2))
     col1.write(' ')
     col2.image("images/fleche2.png")
