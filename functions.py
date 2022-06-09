@@ -26,7 +26,7 @@ height_carac = 300
 ##############################################
 def intro():
   st.image("images/banniere_vivatech.png", use_column_width=True)
-  st.image("images/Epsilon0.png", use_column_width=True)
+  st.image("images/epsilon0.png", use_column_width=True)
   st.markdown('#')
   st.markdown('#')
   st.markdown('#')
@@ -34,7 +34,8 @@ def intro():
 
 def projet():
   st.image("images/banniere_vivatech.png", use_column_width=True)
-  st.image("images/contexte.png", use_column_width=True)
+  st.image("images/projet0.png", use_column_width=True)
+  st.image("images/projet1.png", use_column_width=True)
   
   st.markdown(
     """
@@ -250,7 +251,7 @@ def projet():
   
 def use_case():
   st.image("images/banniere_vivatech.png", use_column_width=True)
-  st.image("images/use_case.png", use_column_width=True)
+  st.image("images/use_case_final.png", use_column_width=True)
   st.image("images/merci.png")
 
   
