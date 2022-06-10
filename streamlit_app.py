@@ -31,6 +31,20 @@ def run():
 
 # Lancement de l'application
 if __name__ == "__main__":
-#     with open('style.css') as f:
-#         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+  st.markdown(
+    """
+    <style>
+      @font-face {
+        font-family: 'Trash-Bold';
+        src: url("FONT/Trash/Trash-Bold.otf") format("opentype");
+      }
+
+      h1  {
+        font-family: 'Trash-Bold';
+        font-size: 48px;
+      }
+    </style>
+    """
+    , unsafe_allow_html=True
+    )
     run()
