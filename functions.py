@@ -31,9 +31,10 @@ def intro():
 def projet():
   st.image("images/03-ProjectDFG.png", use_column_width=True)
   
-  st.title("COMMENT TRADUIRE DU SON EN DATA", use_column_width=True)
+  st.title("COMMENT TRADUIRE DU SON EN DATA")
   st.header("Un peu de théorie...")
   st.subheader("Petite histoire du son")
+  
   col1, col2 = st.columns((1, 1))
   col1.markdown("**Fréquence** : nombre d’oscillations par seconde (Hz)")
   freq = col1.slider(
@@ -221,11 +222,12 @@ def projet():
     p = apply_model(samples, mpath)
     resultat = model_output(p)
     st.markdown("""##### <div style="text-align: center">{}</div>""".format("PRÉDICTION"),unsafe_allow_html=True)
-    col1, col2, col3 = st.columns((2, 1, 2))
-    col1.write(' ')
-    col2.image("images/fleche2.png")
-    col3.write(' ')
-    st.markdown(resultat,unsafe_allow_html=True)
+#     col1, col2, col3 = st.columns((2, 1, 2))
+#     col1.write(' ')
+#     col2.image("images/fleche2.png")
+#     col3.write(' ')
+#     st.markdown(resultat,unsafe_allow_html=True)
+    st.image(resultat, use_column_width=True)
   
   
 def use_case():
@@ -466,17 +468,24 @@ def apply_model(data, model_path):
   return model.predict(wavelet_coeffs)[0][0]
 
 def model_output(p):
-  res = """<div style="text-align: center">{}</div>"""
+#   res = """<div style="text-align: center">{}</div>"""
+  res = ""
   if (p < 0.1) : 
-      res = res.format("""Je peux dire avec une quasi certitude que je n'ai <span style="color:"""+color_red+"""">pas entendu d'oiseau.</span>""")
+#       res = res.format("""Je peux dire avec une quasi certitude que je n'ai <span style="color:"""+color_red+"""">pas entendu d'oiseau.</span>""")
+    res = "images/Resultat-10.png"
   elif (p >= 0.1) & (p < 0.4) :
-      res = res.format("""Sans vouloir m'avancer, je dirais qu'il n'y a <span style="color:"""+color_orange+"""">pas d'oiseau dans cet audio.</span>""")
+#       res = res.format("""Sans vouloir m'avancer, je dirais qu'il n'y a <span style="color:"""+color_orange+"""">pas d'oiseau dans cet audio.</span>""")
+    res = "images/Resultat-10a40.png"
   elif (p >= 0.4) & (p < 0.5) : 
-      res = res.format("""J'ai du mal à me decider. Mais il ... n'y a <span style="color:"""+color_green+"""">pas d'oiseau ?</span>""")
+#       res = res.format("""J'ai du mal à me decider. Mais il ... n'y a <span style="color:"""+color_green+"""">pas d'oiseau ?</span>""")
+    res = "images/Resultat-40a50.png"
   elif (p >= 0.5) & (p < 0.6) :
-      res = res.format("""J'ai du mal à me decider. Mais il ... <span style="color:"""+color_blue2+"""">y a un oiseau ?</span>""")
+#       res = res.format("""J'ai du mal à me decider. Mais il ... <span style="color:"""+color_blue2+"""">y a un oiseau ?</span>""")
+    res = "images/Resultat-50a60.png"
   elif (p >= 0.6) & (p < 0.9) :
-      res = res.format("""Je dirais qu'il <span style="color:"""+color_blue+"""">y a un oiseau</span> dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît.""")
+#       res = res.format("""Je dirais qu'il <span style="color:"""+color_blue+"""">y a un oiseau</span> dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît.""")
+    res = "images/Resultat-60a90.png"
   elif (p >= 0.9) :
-      res = res.format("""<span style="color:"""+color_blue0+"""">S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !</span>""")
+#       res = res.format("""<span style="color:"""+color_blue0+"""">S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !</span>""")
+    res = "images/Resultat-90.png"
   return(res)
