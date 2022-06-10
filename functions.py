@@ -25,13 +25,13 @@ height_carac = 300
 #            Fonctions des onglets           #
 ##############################################
 def intro():
-  st.image("images/01-Epsilon.png")
-  st.image("images/02-ExpertisesDsc.png")
+  st.image("images/01-Epsilon.png", use_column_width=True)
+  st.image("images/02-ExpertisesDsc.png", use_column_width=True)
 
 def projet():
-  st.image("images/03-ProjectDFG.png")
+  st.image("images/03-ProjectDFG.png", use_column_width=True)
   
-  st.title("COMMENT TRADUIRE DU SON EN DATA")
+  st.title("COMMENT TRADUIRE DU SON EN DATA", use_column_width=True)
   st.header("Un peu de théorie...")
   st.subheader("Petite histoire du son")
   col1, col2 = st.columns((1, 1))
@@ -229,8 +229,8 @@ def projet():
   
   
 def use_case():
-  st.image("images/08-Usages.png")
-  st.image("images/merci.png")
+  st.image("images/08-Usages.png", use_column_width=True)
+  st.image("images/merci.png", use_column_width=True)
 
   
 ############################################## 
