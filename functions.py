@@ -29,7 +29,7 @@ def intro():
   st.image("images/02-ExpertisesDsc.png")
 
 def projet():
-  st.image("images/projet0.png")
+  st.image("images/03-ProjectDFG.png")
   st.image("images/projet1.png")
   
   st.title("COMMENT TRADUIRE DU SON EN DATA")
