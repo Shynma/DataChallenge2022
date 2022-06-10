@@ -237,15 +237,15 @@ def use_case():
 ############################################################################################################################################
 @st.cache
 def load_audio(test_file) :
-  return wave.open(test_file, 'r')
+  return(wave.open(test_file, 'r'))
 
 @st.cache
 def load_model_nlp(model_path) :
-  return load_model(model_path)
+  return(load_model(model_path))
 
 @st.cache
 def load_data(file_path) :
-  return pd.read_csv(file_path)
+  return(pd.read_csv(file_path))
 
 def demo_freq_amplitude(freq, amp,t=0.01):
   S_rate = 44100
