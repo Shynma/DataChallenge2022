@@ -35,7 +35,7 @@ def projet():
   st.header("Un peu de théorie...")
   st.subheader("Petite histoire du son")
   
-  col1, col2 = st.columns((1, 2, 2, 1))
+  col1, col2, col3, col4 = st.columns((1, 2, 2, 1))
   freq = col1.slider(
       "Fréquence : nombre d’oscillations par seconde (Hz)"
       , min_value=220
