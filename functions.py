@@ -35,7 +35,7 @@ def projet():
   st.header("Un peu de théorie...")
   st.subheader("Petite histoire du son")
   
-  col1, col2, col3, col4 = st.columns((1, 3, 3, 1))
+  col1, col2, col3, col4 = st.columns((1, 4, 4, 1))
   freq = col1.slider(
       "Fréquence (Hz)" # nombre d’oscillations par seconde 
       , min_value=220
@@ -301,10 +301,10 @@ def demo_sampling_precision(sampling, bites):
   )
   fig3.update_traces(hovertemplate='%{y:.3f} dB')
   fig3.update_layout(legend=dict(
-      yanchor="top",
-      y=0.99,
+      yanchor="bottom",
+      y=0.01,
       xanchor="left",
-      x=0.01
+      x=0.5
   ))
   fig3.data[0]['showlegend'] = True
   fig3.data[0]['name'] = 'Son analogique'
