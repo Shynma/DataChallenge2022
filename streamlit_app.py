@@ -36,7 +36,7 @@ if __name__ == "__main__":
         <style>
         @font-face {
             font-family: 'trashbold';
-            src: url('trash-bold-webfont.woff2') format('woff2'),
+            src: url('../trash-bold-webfont.woff2') format('woff2'),
                  url('trash-bold-webfont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
