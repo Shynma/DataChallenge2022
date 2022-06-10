@@ -25,11 +25,7 @@ height_carac = 300
 #            Fonctions des onglets           #
 ##############################################
 def intro():
-  st.image("images/epsilon0.png")
-  st.markdown('#')
-  st.markdown('#')
-  st.markdown('#')
-  st.image("images/01-Epsilon.png", use_column_width=True)
+  st.image("images/01-Epsilon.png")
 
 def projet():
   st.image("images/projet0.png")
