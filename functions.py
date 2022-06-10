@@ -36,16 +36,14 @@ def projet():
   st.subheader("Petite histoire du son")
   
   col1, col2 = st.columns((1, 1))
-  col1.markdown("**Fréquence** : nombre d’oscillations par seconde (Hz)")
   freq = col1.slider(
-      ""
+      "Fréquence : nombre d’oscillations par seconde (Hz)"
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
-  col1.markdown("**Amplitude** : intensité des oscillations (dB)")
   amp = col1.slider(
-      ""
+      "Amplitude : intensité des oscillations (dB)"
       , min_value = 0
       , max_value = 10
       , value = 1
@@ -54,16 +52,15 @@ def projet():
   fig = demo_freq_amplitude(freq, amp)
   col1.plotly_chart(fig, use_container_width = True)
   
-  col2.markdown("**Sampling rate** : nombre d’échantillon par seconde")
   sampling = col2.slider(
-      ""
+      "Sampling rate : nombre d’échantillon par seconde"
       , min_value=1000
       , max_value=30000
       , value=20000, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
-  col2.markdown("**Sample depth** : précision d’un échantillon")
+  
   precision = col2.slider(
-      ""
+      "Sample depth : précision d’un échantillon"
       , min_value = 0
       , max_value = 5
       , value = 1
