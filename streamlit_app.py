@@ -36,7 +36,7 @@ if __name__ == "__main__":
         <style>
           @font-face {
             font-family: 'Trash-Bold';
-            src: local("FONT/Trash/Trash-Bold.ttf") format("truetype");
+            src: url("https://github.com/Shynma/DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf") format("truetype");
           }
 
           h1  {
