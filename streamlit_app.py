@@ -35,17 +35,16 @@ if __name__ == "__main__":
         """
         <style>
         @font-face {
-          font-family: 'Trash';
-          src: url('FONT/Trash/Trash-Bold.otf') format('embedded-opentype'), /* Internet Explorer */
-             url('FONT/Trash/Trash-Bold.otf') format('woff2'), /* Super Modern Browsers */
-             url('FONT/Trash/Trash-Bold.otf') format('woff'), /* Pretty Modern Browsers */
-             url('FONT/Trash/Trash-Bold.otf') format('truetype'), /* Safari, Android, iOS */
-             url('FONT/Trash/Trash-Bold.otf') format("opentype"),
-             url('FONT/Trash/Trash-Bold.otf') format('svg'); /* Legacy iOS */
+            font-family: 'trashbold';
+            src: url('trash-bold-webfont.woff2') format('woff2'),
+                 url('trash-bold-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
         }
 
           h1  {
-            font-family: 'Trash';
+            font-family: 'trashbold';
             font-size: 48px;
           }
         </style>
