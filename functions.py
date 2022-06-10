@@ -238,7 +238,7 @@ def use_case():
 def load_audio(file_name) :
   return(wave.open(file_name, 'r'))
 
-@st.cache(ttl=1*3600)
+@st.cache(ttl=1*3600,allow_output_mutation=True)
 def load_model_nlp() :
   return(load_model("modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"))
 
