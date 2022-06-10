@@ -37,13 +37,13 @@ def projet():
   
   col1, col2, col3, col4 = st.columns((1, 2, 2, 1))
   freq = col1.slider(
-      "Fréquence : nombre d’oscillations par seconde (Hz)"
+      "Fréquence (Hz)" # nombre d’oscillations par seconde 
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
   amp = col1.slider(
-      "Amplitude : intensité des oscillations (dB)"
+      "Amplitude (dB)" # intensité des oscillations 
       , min_value = 0
       , max_value = 10
       , value = 1
@@ -53,14 +53,14 @@ def projet():
   col2.plotly_chart(fig, use_container_width = True)
   
   sampling = col4.slider(
-      "Sampling rate : nombre d’échantillon par seconde"
+      "Sampling rate" #  : nombre d’échantillon par seconde
       , min_value=1000
       , max_value=30000
       , value=20000, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
   
   precision = col4.slider(
-      "Sample depth : précision d’un échantillon"
+      "Sample depth" # : précision d’un échantillon
       , min_value = 0
       , max_value = 5
       , value = 1
@@ -280,6 +280,12 @@ def demo_sampling_precision(sampling, bites):
       , hovermode='x unified'
   )
   fig3.update_traces(hovertemplate='%{y:.3f} dB')
+  fig3.update_layout(legend=dict(
+      yanchor="top",
+      y=0.99,
+      xanchor="left",
+      x=0.01
+  ))
   fig3.data[0]['showlegend'] = True
   fig3.data[0]['name'] = 'Son analogique'
   fig3.data[1]['showlegend'] = True
