@@ -29,7 +29,7 @@ def intro():
   st.markdown('#')
   st.markdown('#')
   st.markdown('#')
-  st.image("images/data_science.png", use_column_width=True)
+  st.image("images/01-Epsilon.png", use_column_width=True)
 
 def projet():
   st.image("images/projet0.png")
