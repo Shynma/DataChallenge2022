@@ -25,7 +25,6 @@ height_carac = 300
 #            Fonctions des onglets           #
 ##############################################
 def intro():
-  st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/epsilon0.png")
   st.markdown('#')
   st.markdown('#')
@@ -33,7 +32,6 @@ def intro():
   st.image("images/data_science.png", use_column_width=True)
 
 def projet():
-  st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/projet0.png")
   st.image("images/projet1.png")
   
@@ -250,7 +248,6 @@ def projet():
   
   
 def use_case():
-  st.image("images/banniere_vivatech.png", use_column_width=True)
   st.image("images/use_case_final.png")
   st.image("images/merci.png")
 
