@@ -29,22 +29,6 @@ height_carac = 300
 def intro():
   st.image("images/01-Epsilon.png", use_column_width=True)
   st.image("images/02-ExpertisesDsc.png", use_column_width=True)
-  st.markdown(
-    """
-    <style>
-      @font-face {
-        font-family: 'Trash-Bold';
-        src: url("FONT/Trash/Trash-Bold.otf") format("opentype");
-      }
-
-      h1  {
-        font-family: 'Trash-Bold';
-        font-size: 48px;
-      }
-    </style>
-    """
-    , unsafe_allow_html=True
-    )
 
 def projet():
   st.image("images/03-ProjectDFG.png", use_column_width=True)
