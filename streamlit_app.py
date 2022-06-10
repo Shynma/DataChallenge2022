@@ -35,12 +35,16 @@ if __name__ == "__main__":
         """
         <style>
         @font-face {
-          font-family: 'Tangerine';
-          src: url("FONT/Trash/Trash-Bold.ttf") format("woff2");
+          font-family: 'Trash-Bold';
+          src: url('./FONT/Trash/Trash-Bold.ttf') format('embedded-opentype'), /* Internet Explorer */
+             url('./FONT/Trash/Trash-Bold.ttf') format('woff2'), /* Super Modern Browsers */
+             url('./FONT/Trash/Trash-Bold.ttf') format('woff'), /* Pretty Modern Browsers */
+             url('./FONT/Trash/Trash-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+             url('./FONT/Trash/Trash-Bold.ttf') format('svg'); /* Legacy iOS */
         }
 
           h1  {
-            font-family: 'Tangerine';
+            font-family: 'Trash-Bold';
             font-size: 48px;
           }
         </style>
