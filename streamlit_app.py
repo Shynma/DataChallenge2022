@@ -36,7 +36,7 @@ if __name__ == "__main__":
         <style>
           @font-face {
             font-family: 'Trash-Bold';
-            src: url("FONT/Trash/Trash-Bold.ttf") format("truetype");
+            src: local("FONT/Trash/Trash-Bold.ttf") format("truetype");
           }
 
           h1  {
