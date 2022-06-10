@@ -35,7 +35,7 @@ if __name__ == "__main__":
         """
         <style>
         @font-face {
-          font-family: 'Trash-Bold';
+          font-family: 'Trash';
           src: url('FONT/Trash/Trash-Bold.otf') format('embedded-opentype'), /* Internet Explorer */
              url('FONT/Trash/Trash-Bold.otf') format('woff2'), /* Super Modern Browsers */
              url('FONT/Trash/Trash-Bold.otf') format('woff'), /* Pretty Modern Browsers */
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         }
 
           h1  {
-            font-family: 'Trash-Bold';
+            font-family: 'Trash';
             font-size: 48px;
           }
         </style>
