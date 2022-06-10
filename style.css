@@ -3,8 +3,13 @@
     src: url("FONT/Trash/Trash-Bold.otf") format("opentype");
 }
 
+@font-face {
+    font-family: testfont;
+    src: url("fonts/Trash-Bold.otf") format("opentype");
+}
+
 #comment-traduire-du-son-en-data {
-  font-family: 'Trash-Bold';
+  font-family: testfont;
   font-size: 20px;
   color: #FF7A59;
 }
