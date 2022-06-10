@@ -36,7 +36,7 @@ if __name__ == "__main__":
         <style>
         @font-face {
           font-family: 'Tangerine';
-          src: url("FONT/Trash/Trash-Bold.ttf") format("ttf");
+          src: local("FONT/Trash/Trash-Bold.ttf") format("ttf");
         }
 
           h1  {
