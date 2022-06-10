@@ -5,6 +5,12 @@ import functions
 from collections import OrderedDict
 import streamlit.components.v1 as components
 
+with open('style.css') as f:
+    st.markdown(
+        f'(<style>{f.read()}</style>'
+        , unsafe_allow_html = True
+    )
+
 LOGGER = get_logger(__name__)
 
 # Dictionaires des onglets
@@ -18,11 +24,6 @@ DEMOS = OrderedDict(
 
 # Fonctionnement de l'application
 def run():
-    with open('style.css') as f:
-        st.markdown(
-            f'(<style>{f.read()}</style>'
-            , unsafe_allow_html = True
-        )
     st.set_page_config(page_title="Vivatch - Epsilon", page_icon="https://img.icons8.com/color/48/000000/stork.png", layout="wide", initial_sidebar_state="auto", menu_items=None)
     #demo_name = st.sidebar.selectbox("Menu", list(DEMOS.keys()), 0)
     #demo = DEMOS[demo_name]
