@@ -236,11 +236,11 @@ def use_case():
 #                                                  Fonctions annexes                                                                       #
 ############################################################################################################################################
 @st.cache
-def load_audio(test_file)
+def load_audio(test_file) :
   return wave.open(test_file, 'r')
 
 @st.cache
-def load_model_nlp(model_path)
+def load_model_nlp(model_path) :
   return load_model(model_path)
 
 @st.cache
