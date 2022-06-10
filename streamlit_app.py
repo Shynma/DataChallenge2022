@@ -36,11 +36,11 @@ if __name__ == "__main__":
         <style>
         @font-face {
           font-family: 'Trash-Bold';
-          src: url('https://raw.githubusercontent.com/Shynma/DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('embedded-opentype'), /* Internet Explorer */
-             url('https://raw.githubusercontent.com/Shynma/DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('woff2'), /* Super Modern Browsers */
-             url('https://raw.githubusercontent.com/Shynma/DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('woff'), /* Pretty Modern Browsers */
-             url('https://raw.githubusercontent.com/Shynma/DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-             url('https://raw.githubusercontent.com/Shynma/DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('svg'); /* Legacy iOS */
+          src: url('../DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('embedded-opentype'), /* Internet Explorer */
+             url('../DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('woff2'), /* Super Modern Browsers */
+             url('../DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('woff'), /* Pretty Modern Browsers */
+             url('../DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+             url('../DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf') format('svg'); /* Legacy iOS */
         }
 
           h1  {
