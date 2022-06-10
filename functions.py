@@ -229,7 +229,7 @@ def projet():
   
   
 def use_case():
-  st.image("images/08-Usages.png.png")
+  st.image("images/08-Usages.png")
   st.image("images/merci.png")
 
   
