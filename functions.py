@@ -190,18 +190,16 @@ def projet():
   option = st.selectbox("Sélection d'un audio de test",('Audio 1', 'Audio 2', 'Audio 3'))
   if option == 'Audio 1': 
     file_name = "data/00cc9afb-40da-4ca3-a4fe.wav"
-    fp = load_audio_1()
   elif option == 'Audio 2':
     file_name = "data/0a0b783d-f9a3-4652-a01d.wav"
-    fp = load_audio_2()
   elif option == 'Audio 3' :
     file_name = "data/0a4e8000-574c-46b8-a847.wav"
-    fp = load_audio_3()
   else :
     file_name = ""
   
   if file_name != "" :
-    
+    st.audio(file_name, format="audio/wav", start_time=0)
+    fp = load_audio(file_name)
 #     fp = load_audio(test_file)
     sampling_rate = fp.getframerate()
     samples = fp.readframes(-1)
@@ -237,22 +235,7 @@ def use_case():
 ############################################################################################################################################ 
 #                                                  Fonctions annexes                                                                       #
 ############################################################################################################################################
-@st.cache(ttl=1*3600)
-def load_audio_1() :
-  file_name = "data/00cc9afb-40da-4ca3-a4fe.wav"
-  st.audio(file_name, format="audio/wav", start_time=0)
-  return(wave.open(file_name, 'r'))
-
-@st.cache(ttl=1*3600)
-def load_audio_2() :
-  file_name = "data/0a0b783d-f9a3-4652-a01d.wav"
-  st.audio(file_name, format="audio/wav", start_time=0)
-  return(wave.open(file_name, 'r'))
-
-@st.cache(ttl=1*3600)
-def load_audio_3() :
-  file_name = "data/0a4e8000-574c-46b8-a847.wav"
-  st.audio(file_name, format="audio/wav", start_time=0)
+def load_audio(file_name) :
   return(wave.open(file_name, 'r'))
 
 @st.cache(ttl=1*3600)
