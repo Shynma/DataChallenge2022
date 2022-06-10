@@ -26,6 +26,7 @@ height_carac = 300
 ##############################################
 def intro():
   st.image("images/01-Epsilon.png")
+  st.image("images/02-ExpertisesDsc.png")
 
 def projet():
   st.image("images/projet0.png")
