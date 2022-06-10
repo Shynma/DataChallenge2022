@@ -22,6 +22,7 @@ def run():
     #demo_name = st.sidebar.selectbox("Menu", list(DEMOS.keys()), 0)
     #demo = DEMOS[demo_name]
     #demo()
+    st.image("images/banniere_vivatech.png", use_column_width=True)
     functions.intro()
     functions.projet()
     functions.use_case()
