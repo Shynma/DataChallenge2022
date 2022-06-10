@@ -34,7 +34,8 @@ def intro():
 def projet():
   st.image("images/projet0.png")
   st.image("images/projet1.png")
-  
+  st.header("COMMENT TRADUIRE DU SON EN DATA")
+  st.subheader("Un peu de théorie...")
   st.markdown(
     """
       # ANALYSE D'UN AUDIO : DE LA THÉORIE ...
