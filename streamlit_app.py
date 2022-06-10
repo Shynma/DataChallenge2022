@@ -5,8 +5,6 @@ import functions
 from collections import OrderedDict
 import streamlit.components.v1 as components
 
-with open('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 LOGGER = get_logger(__name__)
 
@@ -33,4 +31,6 @@ def run():
 
 # Lancement de l'application
 if __name__ == "__main__":
+    with open('style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     run()
