@@ -34,15 +34,11 @@ def intro():
 def projet():
   st.image("images/projet0.png")
   st.image("images/projet1.png")
-  st.header("COMMENT TRADUIRE DU SON EN DATA")
-  st.subheader("Un peu de théorie...")
-  st.markdown(
-    """
-      # ANALYSE D'UN AUDIO : DE LA THÉORIE ...
-      ### PETITE HISTOIRE DU SON
-     """
-  )
-  col1, col2 = st.columns((1, 2))
+  
+  st.title("COMMENT TRADUIRE DU SON EN DATA")
+  st.header("Un peu de théorie...")
+  st.subheader("Petite histoire du son")
+  col1, col2 = st.columns((1, 1))
   col1.markdown("**Fréquence** : nombre d’oscillations par seconde (Hz)")
   freq = col1.slider(
       ""
@@ -59,22 +55,16 @@ def projet():
       , format = "%d"
   )
   fig = demo_freq_amplitude(freq, amp)
-  col2.plotly_chart(fig)
+  col1.plotly_chart(fig)
   
-  st.markdown(
-    """
-      ### RÉALITÉ VS INFORMATIQUE
-    """
-  )
-  col1, col2 = st.columns((1, 2))
-  col1.markdown("**Sampling rate** : nombre d’échantillon par seconde")
+  col2.markdown("**Sampling rate** : nombre d’échantillon par seconde")
   sampling = col1.slider(
       ""
       , min_value=1000
       , max_value=30000
       , value=20000, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
-  col1.markdown("**Sample depth** : précision d’un échantillon")
+  col2.markdown("**Sample depth** : précision d’un échantillon")
   precision = col1.slider(
       ""
       , min_value = 0
@@ -85,11 +75,11 @@ def projet():
   fig = demo_sampling_precision(sampling, precision)
   col2.plotly_chart(fig)
   
-  st.markdown(
-    """
-      ### CONVERSION VERS UNE IMAGE
-    """
-  )
+#   st.markdown(
+#     """
+#       ### CONVERSION VERS UNE IMAGE
+#     """
+#   )
   col1, col2 = st.columns((2, 1))
   file_ = open("images/Continuous_wavelet_transform.gif", "rb")
   contents = file_.read()
@@ -165,13 +155,7 @@ def projet():
     - Prédiction sur une portion en utilisation ses données et le résultat sur les portions précédentes
   """)
  
-  
-  st.markdown(
-    """
-      # ANALYSE D'UN AUDIO : ... À LA PRATIQUE
-      ### DESCRIPTION DES DONNÉES
-    """
-  )
+  st.header("ET SI ON PASSAIT À LA PRATIQUE")
   # Statistique générale
   col1, col2 = st.columns((1, 2))
   fig1 = globale_stat()
