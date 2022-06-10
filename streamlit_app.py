@@ -22,9 +22,9 @@ def run():
     #demo_name = st.sidebar.selectbox("Menu", list(DEMOS.keys()), 0)
     #demo = DEMOS[demo_name]
     #demo()
-    functions.intro
-    functions.projet
-    functions.use_case
+    functions.intro()
+    functions.projet()
+    functions.use_case()
 
 
 # Lancement de l'application
