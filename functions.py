@@ -52,17 +52,17 @@ def projet():
       , format = "%d"
   )
   fig = demo_freq_amplitude(freq, amp)
-  col1.plotly_chart(fig)
+  col1.plotly_chart(fig, use_container_width = True)
   
   col2.markdown("**Sampling rate** : nombre d’échantillon par seconde")
-  sampling = col1.slider(
+  sampling = col2.slider(
       ""
       , min_value=1000
       , max_value=30000
       , value=20000, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
   col2.markdown("**Sample depth** : précision d’un échantillon")
-  precision = col1.slider(
+  precision = col2.slider(
       ""
       , min_value = 0
       , max_value = 5
@@ -70,7 +70,7 @@ def projet():
       , format = "%d"
   )
   fig = demo_sampling_precision(sampling, precision)
-  col2.plotly_chart(fig)
+  col2.plotly_chart(fig, use_container_width = True)
   
 #   st.markdown(
 #     """
