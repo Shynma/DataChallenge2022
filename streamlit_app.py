@@ -35,12 +35,13 @@ if __name__ == "__main__":
         """
         <style>
           @font-face {
-            font-family: 'Trash-Bold';
+            font-family: 'Trash';
+            font-weight: bold;
             src: url("https://github.com/Shynma/DataChallenge2022/blob/master/FONT/Trash/Trash-Bold.ttf") format("truetype");
           }
 
           h1  {
-            font-family: 'Trash-Bold';
+            font-family: 'Trash';
             font-size: 48px;
           }
         </style>
