@@ -1,5 +1,10 @@
+@font-face {
+    font-family: Trash-Bold;
+    src: url("FONT/Trash/Trash-Bold.otf") format("opentype");
+}
+
 #comment-traduire-du-son-en-data {
-  font-family: Arial;
+  font-family: Trash-Bold;
   font-size: 20px;
   color: #FF7A59;
 }
