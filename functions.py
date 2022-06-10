@@ -235,15 +235,15 @@ def use_case():
 ############################################################################################################################################ 
 #                                                  Fonctions annexes                                                                       #
 ############################################################################################################################################
-@st.cache
+@st.cache(ttl=1*3600)
 def load_audio(test_file) :
   return(wave.open(test_file, 'r'))
 
-@st.cache
+@st.cache(ttl=1*3600)
 def load_model_nlp(model_path) :
   return(load_model(model_path))
 
-@st.cache
+@st.cache(ttl=1*3600)
 def load_data(file_path) :
   return(pd.read_csv(file_path))
 
