@@ -303,7 +303,7 @@ def demo_sampling_precision(sampling, bites):
   fig3.update_layout(legend=dict(
       yanchor="bottom",
       y=0.01,
-      xanchor="left",
+      xanchor="center",
       x=0.5
   ))
   fig3.data[0]['showlegend'] = True
