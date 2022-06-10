@@ -36,8 +36,8 @@ if __name__ == "__main__":
         <style>
         @font-face {
             font-family: 'trashbold';
-            src: url('https://raw.githubusercontent.com/Shynma/DataChallenge2022/blob/master/trash-bold-webfont.woff2') format('woff2'),
-                 url('https://raw.githubusercontent.com/Shynma/DataChallenge2022/blob/master/trash-bold-webfont.woff') format('woff');
+            src: url('../DataChallenge2022/blob/master/trash-bold-webfont.woff2') format('woff2'),
+                 url('../DataChallenge2022/blob/master/trash-bold-webfont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
 
