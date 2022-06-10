@@ -199,7 +199,7 @@ def projet():
   
   if test_file != "" :
     st.audio(test_file, format="audio/wav", start_time=0)
-    fp = wave.open(test_file, 'r')
+    fp = load_audio(test_file)
     sampling_rate = fp.getframerate()
     samples = fp.readframes(-1)
     samples = np.frombuffer(samples, dtype='int16')
@@ -232,9 +232,21 @@ def use_case():
   st.image("images/merci.png", use_column_width=True)
 
   
-############################################## 
-#             Fonctions annexes              #
-##############################################
+############################################################################################################################################ 
+#                                                  Fonctions annexes                                                                       #
+############################################################################################################################################
+@st.cache
+def load_audio(test_file)
+  return wave.open(test_file, 'r')
+
+@st.cache
+def load_model_nlp(model_path)
+  return load_model(model_path)
+
+@st.cache
+def load_data(file_path) :
+  return pd.read_csv(file_path)
+
 def demo_freq_amplitude(freq, amp,t=0.01):
   S_rate = 44100
   T = 1/S_rate
@@ -293,8 +305,8 @@ def demo_sampling_precision(sampling, bites):
   return(fig3)
 
 def globale_stat():
-  base_sun = pd.read_csv('data/base_sun.csv')
-  base_histo = pd.read_csv('data/base_histo.csv')
+  base_sun = load_data('data/base_sun.csv')
+  base_histo = load_data('data/base_histo.csv')
   trace1 = go.Indicator(
           mode = "number",
           value = base_sun['nb audios'].sum(),
@@ -321,7 +333,7 @@ def globale_sunburst():
       'apprentissage' : color_blue2
       , 'validation' : color_orange
   }
-  base_sun = pd.read_csv('data/base_sun.csv')
+  base_sun = load_data('data/base_sun.csv')
   fig = px.sunburst(
       base_sun
       , path=["base", "hasbird"]
@@ -333,7 +345,7 @@ def globale_sunburst():
   return(fig)
 
 def globale_boxplot():
-  base_box = pd.read_csv('data/base_boxplot.csv')
+  base_box = load_data('data/base_boxplot.csv')
   fig = px.box(base_box
       , x='hasbird'
       , y="Frequence max"
@@ -464,31 +476,23 @@ def scalogram(data) :
   wavelet_coeffs, freqs = pywt.cwt(y, widths, wavelet = wavelet, sampling_period=dt)
   return(wavelet_coeffs)
 
-
 def apply_model(data, model_path):
-  model = load_model(model_path)
+  model = load_model_nlp(model_path)
   wavelet_coeffs = convert_to_tensor([scalogram(data)]) ## correspond à nd_array (8,15000)
   return model.predict(wavelet_coeffs)[0][0]
 
 def model_output(p):
-#   res = """<div style="text-align: center">{}</div>"""
   res = ""
   if (p < 0.1) : 
-#       res = res.format("""Je peux dire avec une quasi certitude que je n'ai <span style="color:"""+color_red+"""">pas entendu d'oiseau.</span>""")
     res = "images/Resultat-10.png"
   elif (p >= 0.1) & (p < 0.4) :
-#       res = res.format("""Sans vouloir m'avancer, je dirais qu'il n'y a <span style="color:"""+color_orange+"""">pas d'oiseau dans cet audio.</span>""")
     res = "images/Resultat-10a40.png"
   elif (p >= 0.4) & (p < 0.5) : 
-#       res = res.format("""J'ai du mal à me decider. Mais il ... n'y a <span style="color:"""+color_green+"""">pas d'oiseau ?</span>""")
     res = "images/Resultat-40a50.png"
   elif (p >= 0.5) & (p < 0.6) :
-#       res = res.format("""J'ai du mal à me decider. Mais il ... <span style="color:"""+color_blue2+"""">y a un oiseau ?</span>""")
     res = "images/Resultat-50a60.png"
   elif (p >= 0.6) & (p < 0.9) :
-#       res = res.format("""Je dirais qu'il <span style="color:"""+color_blue+"""">y a un oiseau</span> dans cet audio. Dites-moi que j'ai raison, s'il-vous-plaît.""")
     res = "images/Resultat-60a90.png"
   elif (p >= 0.9) :
-#       res = res.format("""<span style="color:"""+color_blue0+"""">S'il n'y a pas d'oiseau dans cet audio, reinitialisez-moi complètement !</span>""")
     res = "images/Resultat-90.png"
   return(res)
