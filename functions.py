@@ -30,7 +30,6 @@ def intro():
 
 def projet():
   st.image("images/03-ProjectDFG.png")
-  st.image("images/projet1.png")
   
   st.title("COMMENT TRADUIRE DU SON EN DATA")
   st.header("Un peu de théorie...")
@@ -230,7 +229,7 @@ def projet():
   
   
 def use_case():
-  st.image("images/use_case_final.png")
+  st.image("images/08-Usages.png.png")
   st.image("images/merci.png")
 
   
