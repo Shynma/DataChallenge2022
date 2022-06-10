@@ -37,7 +37,7 @@ def intro():
         src: url("FONT/Trash/Trash-Bold.otf") format("opentype");
       }
 
-      html, body, [class*="css"]  {
+      h1  {
         font-family: 'Trash-Bold';
         font-size: 48px;
       }
