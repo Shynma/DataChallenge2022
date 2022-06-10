@@ -201,7 +201,7 @@ def projet():
     file_name = ""
   
   if file_name != "" :
-    st.audio(file_name, format="audio/wav", start_time=0)
+    
 #     fp = load_audio(test_file)
     sampling_rate = fp.getframerate()
     samples = fp.readframes(-1)
@@ -239,15 +239,21 @@ def use_case():
 ############################################################################################################################################
 @st.cache(ttl=1*3600)
 def load_audio_1() :
-  return(wave.open("data/00cc9afb-40da-4ca3-a4fe.wav", 'r'))
+  file_name = "data/00cc9afb-40da-4ca3-a4fe.wav"
+  st.audio(file_name, format="audio/wav", start_time=0)
+  return(wave.open(file_name, 'r'))
 
 @st.cache(ttl=1*3600)
 def load_audio_2() :
-  return(wave.open("data/0a0b783d-f9a3-4652-a01d.wav", 'r'))
+  file_name = "data/0a0b783d-f9a3-4652-a01d.wav"
+  st.audio(file_name, format="audio/wav", start_time=0)
+  return(wave.open(file_name, 'r'))
 
 @st.cache(ttl=1*3600)
 def load_audio_3() :
-  return(wave.open("data/0a4e8000-574c-46b8-a847.wav", 'r'))
+  file_name = "data/0a4e8000-574c-46b8-a847.wav"
+  st.audio(file_name, format="audio/wav", start_time=0)
+  return(wave.open(file_name, 'r'))
 
 @st.cache(ttl=1*3600)
 def load_model_nlp() :
