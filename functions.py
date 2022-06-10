@@ -200,7 +200,7 @@ def projet():
   else :
     file_name = ""
   
-  if test_file != "" :
+  if file_name != "" :
     st.audio(file_name, format="audio/wav", start_time=0)
 #     fp = load_audio(test_file)
     sampling_rate = fp.getframerate()
