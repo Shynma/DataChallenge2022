@@ -189,17 +189,20 @@ def projet():
   
   option = st.selectbox("Sélection d'un audio de test",('Audio 1', 'Audio 2', 'Audio 3'))
   if option == 'Audio 1': 
-    test_file = "data/00cc9afb-40da-4ca3-a4fe.wav"
+    file_name = "data/00cc9afb-40da-4ca3-a4fe.wav"
+    fp = load_audio_1()
   elif option == 'Audio 2':
-    test_file = "data/0a0b783d-f9a3-4652-a01d.wav"
+    file_name = "data/0a0b783d-f9a3-4652-a01d.wav"
+    fp = load_audio_2()
   elif option == 'Audio 3' :
-    test_file = "data/0a4e8000-574c-46b8-a847.wav"
+    file_name = "data/0a4e8000-574c-46b8-a847.wav"
+    fp = load_audio_3()
   else :
-    test_file = ""
+    file_name = ""
   
   if test_file != "" :
-    st.audio(test_file, format="audio/wav", start_time=0)
-    fp = load_audio(test_file)
+    st.audio(file_name, format="audio/wav", start_time=0)
+#     fp = load_audio(test_file)
     sampling_rate = fp.getframerate()
     samples = fp.readframes(-1)
     samples = np.frombuffer(samples, dtype='int16')
@@ -215,8 +218,7 @@ def projet():
     col3.plotly_chart(fig3,use_container_width=True)
     
     # Application du modèle
-    mpath = "modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"
-    p = apply_model(samples, mpath)
+    p = apply_model(samples)
     resultat = model_output(p)
     st.markdown("""##### <div style="text-align: center">{}</div>""".format("PRÉDICTION"),unsafe_allow_html=True)
 #     col1, col2, col3 = st.columns((2, 1, 2))
@@ -235,16 +237,34 @@ def use_case():
 ############################################################################################################################################ 
 #                                                  Fonctions annexes                                                                       #
 ############################################################################################################################################
-def load_audio(test_file) :
-  return(wave.open(test_file, 'r'))
+@st.cache(ttl=1*3600)
+def load_audio_1() :
+  return(wave.open("data/00cc9afb-40da-4ca3-a4fe.wav", 'r'))
 
 @st.cache(ttl=1*3600)
-def load_model_nlp(model_path) :
-  return(load_model(model_path))
+def load_audio_2() :
+  return(wave.open("data/0a0b783d-f9a3-4652-a01d.wav", 'r'))
 
 @st.cache(ttl=1*3600)
-def load_data(file_path) :
-  return(pd.read_csv(file_path))
+def load_audio_3() :
+  return(wave.open("data/0a4e8000-574c-46b8-a847.wav", 'r'))
+
+@st.cache(ttl=1*3600)
+def load_model_nlp() :
+  return(load_model("modele/model_70_epochs_over_70_14-12-2021-14-31-33.h5"))
+
+@st.cache(ttl=1*3600)
+def load_data_base_sun() :
+  return(pd.read_csv('data/base_sun.csv'))
+
+@st.cache(ttl=1*3600)
+def load_data_base_histo() :
+  return(pd.read_csv('data/base_histo.csv'))
+
+@st.cache(ttl=1*3600)
+def load_data_boxplot() :
+  return(pd.read_csv('data/base_boxplot.csv'))
+
 
 def demo_freq_amplitude(freq, amp,t=0.01):
   S_rate = 44100
@@ -304,8 +324,8 @@ def demo_sampling_precision(sampling, bites):
   return(fig3)
 
 def globale_stat():
-  base_sun = load_data('data/base_sun.csv')
-  base_histo = load_data('data/base_histo.csv')
+  base_sun = load_data_base_sun()
+  base_histo = load_data_base_histo()
   trace1 = go.Indicator(
           mode = "number",
           value = base_sun['nb audios'].sum(),
@@ -332,7 +352,7 @@ def globale_sunburst():
       'apprentissage' : color_blue2
       , 'validation' : color_orange
   }
-  base_sun = load_data('data/base_sun.csv')
+  base_sun = load_data_base_sun()
   fig = px.sunburst(
       base_sun
       , path=["base", "hasbird"]
@@ -344,7 +364,7 @@ def globale_sunburst():
   return(fig)
 
 def globale_boxplot():
-  base_box = load_data('data/base_boxplot.csv')
+  base_box = load_data_boxplot()
   fig = px.box(base_box
       , x='hasbird'
       , y="Frequence max"
@@ -475,8 +495,8 @@ def scalogram(data) :
   wavelet_coeffs, freqs = pywt.cwt(y, widths, wavelet = wavelet, sampling_period=dt)
   return(wavelet_coeffs)
 
-def apply_model(data, model_path):
-  model = load_model_nlp(model_path)
+def apply_model(data):
+  model = load_model_nlp()
   wavelet_coeffs = convert_to_tensor([scalogram(data)]) ## correspond à nd_array (8,15000)
   return model.predict(wavelet_coeffs)[0][0]
 
