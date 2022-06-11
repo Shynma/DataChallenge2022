@@ -31,28 +31,28 @@ def run():
 
 # Lancement de l'application
 if __name__ == "__main__":
-    st.markdown(
-        """
-        <style>
-        @font-face {
-            font-family: Roboto;
-            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
-            font-weight: normal;
-            font-style: normal;
+#     st.markdown(
+#         """
+#         <style>
+#         @font-face {
+#             font-family: Roboto;
+#             src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
+#             font-weight: normal;
+#             font-style: normal;
 
-        }
+#         }
 
-        h1  {
-            font-family: 'Roboto', sans-serif;
-            font-size: 48px;
-            color : #00A8FF;
-        }
+#         h1  {
+#             font-family: 'Roboto', sans-serif;
+#             font-size: 48px;
+#             color : #00A8FF;
+#         }
 
-        html, body, [class*="css"]  {
-            font-family: 'Roboto', sans-serif;
-        }
-        </style>
-        """
-        , unsafe_allow_html=True
-    )
+#         html, body, [class*="css"]  {
+#             font-family: 'Roboto', sans-serif;
+#         }
+#         </style>
+#         """
+#         , unsafe_allow_html=True
+#     )
     run()
