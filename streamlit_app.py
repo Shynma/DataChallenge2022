@@ -35,18 +35,22 @@ if __name__ == "__main__":
         """
         <style>
         @font-face {
-            font-family: 'trashbold';
-            src: url('/fonts/trash-bold-webfont.woff2') format('woff2'),
-                 url('/fonts/trash-bold-webfont.woff') format('woff');
+            font-family: Roboto;
+            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
             font-weight: normal;
             font-style: normal;
 
         }
 
-          h1  {
-            font-family: 'trashbold';
+        h1  {
+            font-family: 'Roboto', sans-serif;
             font-size: 48px;
-          }
+            color : #00A8FF;
+        }
+
+        html, body, [class*="css"]  {
+            font-family: 'Roboto', sans-serif;
+        }
         </style>
         """
         , unsafe_allow_html=True

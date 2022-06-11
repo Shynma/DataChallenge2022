@@ -32,19 +32,23 @@ def intro():
 
 def projet():
   st.image("images/03-ProjectDFG.png", use_column_width=True)
+  st.image("images/04-TitreAudio1.png", use_column_width=True)
   
-  st.title("COMMENT TRADUIRE DU SON EN DATA")
-  st.header("Un peu de théorie...")
-  st.subheader("Petite histoire du son")
-  
-  col1, col2, col3, col4 = st.columns((1, 4, 4, 1))
-  freq = col1.slider(
+  st.markdown(
+    """
+    <center><font size='+1'><b> 4 PARAMÈTRES </b></font></center>
+    <br>
+    """
+    , unsafe_allow_html=True
+  )
+  col1, col2, col3, col4 = st.columns((3, 1, 1, 3))
+  freq = col2.slider(
       "Fréquence (Hz)" # nombre d’oscillations par seconde 
       , min_value=220
       , max_value=2000
       , value=450, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
-  amp = col1.slider(
+  amp = col2.slider(
       "Amplitude (dB)" # intensité des oscillations 
       , min_value = 0
       , max_value = 10
@@ -52,16 +56,16 @@ def projet():
       , format = "%d"
   )
   fig = demo_freq_amplitude(freq, amp)
-  col2.plotly_chart(fig, use_container_width = True)
+  col1.plotly_chart(fig, use_container_width = True)
   
-  sampling = col4.slider(
+  sampling = col3.slider(
       "Sampling rate" #  : nombre d’échantillon par seconde
       , min_value=1000
       , max_value=30000
       , value=20000, step=None, format=None, key=None, help=None, on_change=None, args=None, kwargs=None
   )
   
-  precision = col4.slider(
+  precision = col3.slider(
       "Sample depth" # : précision d’un échantillon
       , min_value = 0
       , max_value = 5
@@ -69,127 +73,94 @@ def projet():
       , format = "%d"
   )
   fig = demo_sampling_precision(sampling, precision)
-  col3.plotly_chart(fig, use_container_width = True)
-  
-#   st.markdown(
-#     """
-#       ### CONVERSION VERS UNE IMAGE
-#     """
-#   )
-  col1, col2 = st.columns((2, 1))
-  file_ = open("images/Continuous_wavelet_transform.gif", "rb")
-  contents = file_.read()
-  data_url = base64.b64encode(contents).decode("utf-8")
-  file_.close()
-  col1.markdown(
-      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-      unsafe_allow_html=True
-  )
-  col2.write("""
-      1. **Application de la transformée en ondelettes :**
-        - Inspiré de la transformée de Fourier
-        - Utilisation d'une petite ondulation (ici, Morlet) pour obtenir la fréquence et l'amplitude à chaque instant t
-      2. **Création du scalogramme :**
-        - Utilisation du temps (en X), de la fréquence (en Y) et de l'amplitude (en Z - couleur) pour obtenir une image en 2D
-        - Normalisation de la taille de l'image : 
-          - discrétisation de la fréquence pour Y
-          - downsampling et resizing pour X
-  """)
+  col4.plotly_chart(fig, use_container_width = True)
   
   st.markdown(
     """
-      ### UTILISATION D'UN MODÈLE D'IA
+    <br><br>
+    <center><font size='+1'><b> 1 FONCTION </b></font></center>
+    <br>
     """
+    , unsafe_allow_html=True
   )
-  col1, col2 = st.columns((1, 1))
-  col1.write("""
-    ##### RÉSEAU DE NEURONES CLASSIQUE
-      - S'inspire du fonctionnement du cerveau humain
-      - Possède 3 types de composants :
-        - neurones externes qui envoient des informations
-        - neurones externes qui reçoivent des information
-        - neurones internes qui connectent les deux couches de neurones externes entre elles
-      - Aggrège et transforme l'information à chaque étape
-  """)
-  file_ = open("images/feed-forward-neural-network.gif", "rb")
-  contents = file_.read()
-  data_url = base64.b64encode(contents).decode("utf-8")
-  file_.close()
-  col2.markdown(
-      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-      unsafe_allow_html=True
-  )
+  col1,col2,col3 = st.columns((1, 2.5, 1))
+  col2.image("images/Continuous_wavelet_transform.gif", use_column_width=True)
 
-  col1, col2 = st.columns((2, 1))
-  col2.write("""
-    ##### RÉSEAU DE NEURONES À CONVOLUTION
-      - Prise en compte de la forte corrélation entre un pixel et ceux qui l'entourent
-      - Simplification de l'information en entrée en réduisant dimension et qualité tout en gardant les informations essentielles
-  """)
-  file_ = open("images/cnn_plus_pool.gif", "rb")
-  contents = file_.read()
-  data_url = base64.b64encode(contents).decode("utf-8")
-  file_.close()
-  col1.markdown(
-      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif" width="100%">',
-      unsafe_allow_html=True
-  )
 
-  col1, col2 = st.columns((1, 2))
-  file_ = open("images/rnn.gif", "rb")
-  contents = file_.read()
-  data_url = base64.b64encode(contents).decode("utf-8")
-  file_.close()
-  col2.markdown(
-      f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-      unsafe_allow_html=True
+  
+  st.markdown(
+    """
+    <br><br>
+    <center><font size='+1'><b> 1 RÉSEAU DE NEURONES </b></font></center>
+    <br>
+    """
+    , unsafe_allow_html=True
   )
-  col1.write("""
-  ##### RÉSEAU RÉCURRENT
-    -	Adaptation du réseau de neurones aux données de taille variables (texte, audio)
-    -	Division de l’information en entrée en portions de taille fixe
-    - Prédiction sur une portion en utilisation ses données et le résultat sur les portions précédentes
-  """)
- 
-  st.header("ET SI ON PASSAIT À LA PRATIQUE")
+  col1,col2,col3 = st.columns((1, 2, 1))
+  col2.image("images/feed-forward-neural-network.gif", use_column_width=True)
+
+  st.markdown(
+    """
+    <br><br>
+    <center><font size='+1'><b> COMPOSÉ DE ... </b></font></center>
+    <br>
+    """
+    , unsafe_allow_html=True
+  )
+  col1,col2 = st.columns((1.5, 1))
+  col1.markdown("<center><b> 3 COUCHE DE CONVOLUTION </b></center>", unsafe_allow_html=True)
+  col1.image("images/cnn_plus_pool.gif", use_column_width=True)
+  col2.markdown("<center><b> 2 COUCHE DE RÉCURRENCE </b></center>", unsafe_allow_html=True)
+  col2.image("images/rnn.gif", use_column_width=True)
+
+
+
+  st.markdown("<br><br><br>", unsafe_allow_html=True)
+  st.image("images/05-TitreAudio2.png", use_column_width=True)
+  st.markdown(
+    """
+    <br><br>
+    <center><font size='+1'><b> DES DONNÉES </b></font></center>
+    <br>
+    """
+    , unsafe_allow_html=True
+  )
   # Statistique générale
-  col1, col2 = st.columns((1, 2))
+  col1, col2 = st.columns((1, 1))
   fig1 = globale_stat()
   col1.plotly_chart(fig1,use_container_width=True)
   fig2 = globale_sunburst()
   col2.plotly_chart(fig2,use_container_width=True)
 
   # Boxplot max frequency
+  col1, col2, col3 = st.columns((1, 5, 1))
   fig = globale_boxplot()
-  st.plotly_chart(fig,use_container_width=True)
-  
+  col2.plotly_chart(fig,use_container_width=True)
+
   st.markdown(
     """
-      ### MODÉLISATION
+    <br><br>
+    <center><font size='+1'><b> 1 MODÈLE </b></font></center>
+    <br>
     """
+    , unsafe_allow_html=True
   )
-  st.markdown("""
-  En combinant l'ensemble de ses structures, nous avons construit un **CRNN** pour notre tâche de prédiction.
-  Le modèle prendra en entrée le scalogramme généré à partir de l'audio, puis doit prédire la présence ou l'absence
-  de l'oiseau.
-  """)
-  
-  filename = "modele/historique_entrainement_70_epochs_over_70_14-12-2021-14-31-33.pkl"
-  fig = plot_perf(filename)
-  col1, col2 = st.columns((1, 1))
-  col1.plotly_chart(fig,use_container_width=True)
+  col1, col2, col3 = st.columns((1, 2, 1))
   cm = [[0.44, 0.55],
       [0.2, 0.8]]
   fig = confusion_matrix(cm)
   col2.plotly_chart(fig,use_container_width=True)
-    
+
   st.markdown(
     """
-      ### APPLICATION
+    <br><br>
+    <center><font size='+1'><b> 1 UTILISATION EN TEMPS RÉEL  </b></font></center>
+    <br>
     """
+    , unsafe_allow_html=True
   )
-  
-  option = st.selectbox("Sélection d'un audio de test",('Audio 1', 'Audio 2', 'Audio 3'))
+  col1, col2, col3 = st.columns((1, 1, 1))
+  option = col2.selectbox("",('Audio 1', 'Audio 2', 'Audio 3'))
   if option == 'Audio 1': 
     file_name = "data/00cc9afb-40da-4ca3-a4fe.wav"
   elif option == 'Audio 2':
@@ -200,7 +171,7 @@ def projet():
     file_name = ""
   
   if file_name != "" :
-    st.audio(file_name, format="audio/wav", start_time=0)
+    col2.audio(file_name, format="audio/wav", start_time=0)
     fp = load_audio(file_name)
 #     fp = load_audio(test_file)
     sampling_rate = fp.getframerate()
@@ -208,7 +179,6 @@ def projet():
     samples = np.frombuffer(samples, dtype='int16')
    
     # Affichage des stats
-    st.write("##### CARACTÉRISITIQUES DE L'AUDIO")
     col1, col2, col3 = st.columns((1, 1, 1))
     fig1 = ind_stat_sampling(sampling_rate)
     col1.plotly_chart(fig1,use_container_width=True)
@@ -220,12 +190,6 @@ def projet():
     # Application du modèle
     p = apply_model(samples)
     resultat = model_output(p)
-    st.markdown("""##### <div style="text-align: center">{}</div>""".format("PRÉDICTION"),unsafe_allow_html=True)
-#     col1, col2, col3 = st.columns((2, 1, 2))
-#     col1.write(' ')
-#     col2.image("images/fleche2.png")
-#     col3.write(' ')
-#     st.markdown(resultat,unsafe_allow_html=True)
     st.image(resultat, use_column_width=True)
   
   
@@ -273,6 +237,8 @@ def demo_freq_amplitude(freq, amp,t=0.01):
       , width=600
       , height = 300
       , xaxis_title="Temps (en seconde)"
+      , plot_bgcolor = 'rgba(0, 0, 0, 0)'
+      , paper_bgcolor = 'rgba(0, 0, 0, 0)'
 #       , yaxis_title="Amplitude"
 #       , hovermode='x unified'
   )
@@ -300,6 +266,8 @@ def demo_sampling_precision(sampling, bites):
       , xaxis_title="Temps (en seconde)"
       , yaxis_title="Amplitude"
       , hovermode='x unified'
+      , plot_bgcolor = 'rgba(0, 0, 0, 0)'
+      , paper_bgcolor = 'rgba(0, 0, 0, 0)'
   )
   fig3.update_traces(hovertemplate='%{y:.3f} dB')
   fig3.update_layout(legend=dict(
@@ -320,20 +288,23 @@ def globale_stat():
   trace1 = go.Indicator(
           mode = "number",
           value = base_sun['nb audios'].sum(),
-          title = {'text': "Nombre de fichiers audio"},
-          domain={'x': [0.0, 1], 'y': [0.60, 1]}
+          title = {'text': "<span style='font-size:0.8em;color:gray'>Nombre d'audio</span>"},
+          domain={'x': [0.0, 1], 'y': [0.60, 1]},
+          number = {"font":{"size":100}}
       )
   trace2 = go.Indicator(
           mode = "number",
           value = base_histo['framerate'].mean(),
-          title = {'text': "Sampling rate moyen"},
-          domain={'x': [0.0, 1], 'y': [0.3, 0.5]}
+          title = {'text': "<span style='font-size:0.8em;color:gray'>Sampling rate moyen</span>"},
+          domain={'x': [0.0, 0.4], 'y': [0, 0.4]},
+          number = {"font":{"size":100}}
       )
   trace3 = go.Indicator(
           mode = "number",
           value = base_histo['sampwidth'].mean(),
-          title = {'text': "Sample depth moyen par sample"},
-          domain={'x': [0.0, 1], 'y': [0.0, 0.2]}
+          title = {'text': "<span style='font-size:0.8em;color:gray'>Sample depth moyen</span>"},
+          domain={'x': [0.7, 1], 'y': [0.0, 0.4]},
+          number = {"font":{"size":100}}
       )
   fig = go.Figure(data = [trace1, trace2, trace3])
   return(fig)  
@@ -349,7 +320,7 @@ def globale_sunburst():
       , path=["base", "hasbird"]
       , values='nb audios'
       , color='base', color_discrete_map = code_couleur
-      , title= "Répartition des audios selon leur base et la présence d'oiseau ou non"
+      #, title= "Répartition des audios selon leur base et la présence d'oiseau ou non"
   )
   fig.update_traces(textinfo="label+percent entry", textfont=dict(family="Arial Black"), hovertemplate="Donnees %{id} (%{value} audios)")
   return(fig)
@@ -361,9 +332,20 @@ def globale_boxplot():
       , y="Frequence max"
       , color="hasbird"
       , color_discrete_map = {'sans oiseau' : color_blue, 'avec oiseau' : color_green}
-      , title = "Distribution de la fréquence maximale selon la présence d'oiseau ou non"
+      , title = "Distribution de la fréquence maximale"
       , labels = {'hasbird' : ""}
   )
+  fig.update_layout({
+    'plot_bgcolor': 'rgba(0, 0, 0, 0)'
+    , 'paper_bgcolor': 'rgba(0, 0, 0, 0)'
+    , 'showlegend':False
+    , 'yaxis_visible' : False
+    , 'yaxis_showticklabels' : False
+    , 'title_x' : 0.5
+    #, 'title_font_family' : "Arial Black"
+    , 'title_font_color' : 'gray'
+    , 'title_font_size' : 20
+  })
   return(fig)
 
 def ind_stat_sampling(sampling_rate):
@@ -372,7 +354,7 @@ def ind_stat_sampling(sampling_rate):
           mode = "number",
           value = round(sampling_rate/1000,1),
           domain = {'x': [0, 1], 'y': [0, 1]},
-          title = {'text': "Sampling Rate"},
+          title = {'text': "<span style='font-size:0.8em;color:gray'>Sampling Rate</span>"},
           number={'suffix': "kHz"}
       )
   )
@@ -385,10 +367,14 @@ def ind_stat_nbbits(sampwidth):
           mode = "gauge+number",
           value = sampwidth,
           domain = {'x': [0, 1], 'y': [0, 1]},
-          title = {'text': "Sample depth"},
+          title = {'text': "<span style='font-size:0.8em;color:gray'>Sample depth</span>"},
           gauge = {
-              'axis': {'range': [None,32]},
-              'bar': {'color': "grey"},
+              'axis': {
+                'range': [None,32]
+                , 'dtick' : 8
+                },
+              'bar': {'color': "#989898"},
+              'bordercolor': "white",
               'steps': [
                   {'range': [0, 1], 'color': color_red},
                   {'range': [1, 4], 'color': color_orange},
@@ -417,7 +403,7 @@ def ind_stat_freq(sampling_rate, samples) :
           mode = "number",
           value = frequency_max_amplitude,
           domain = {'x': [0, 1], 'y': [0, 1]},
-          title = {'text': "Fréquence maximale"},
+          title = {'text': "<span style='font-size:0.8em;color:gray'>Fréquence maximale</span>"},
           number={'suffix': "Hz"}
       )
   )
@@ -453,7 +439,7 @@ def confusion_matrix(cm):
               {
                   "x": labels[j],
                   "y": labels[i],
-                  "font": {"color": color_black,'size':20},
+                  "font": {"color": '#454545','size':20},
                   "text": "{:.0f}%".format(value * 100),
                   "xref": "x1",
                   "yref": "y1",
@@ -461,10 +447,13 @@ def confusion_matrix(cm):
               }
           )
   layout = {
-      "title": title,
-      "xaxis": {"title": "Valeur prédite"},
-      "yaxis": {"title": "Valeur réelle"},
-      "annotations": annotations
+        # "title": title
+       "xaxis": {"title": "Valeur prédite"}
+      , "yaxis": {"title": "Valeur réelle"}
+      , "annotations": annotations
+      # , 'title_x' : 0.5
+      # , 'title_font_color' : 'gray'
+      # , 'title_font_size' : 20
 
   }
   fig = go.Figure(data=data, layout=layout)
