@@ -189,7 +189,7 @@ def projet():
     # Application du modèle
     p = apply_model(samples)
     resultat = model_output(p)
-    col1, col2, col3 = st.columns((1, 4, 1))
+    col1, col2, col3 = st.columns((1, 5, 1))
     col2.image(resultat, use_column_width=True)
   
   
