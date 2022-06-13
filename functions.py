@@ -37,7 +37,7 @@ def projet():
   
   st.markdown(
     """
-    <center><font size='+1'><b> 4 PARAMÈTRES </b></font></center>
+    <center><font size='+1'><b> QUATRE PARAMÈTRES </b></font></center>
     <br>
     """
     , unsafe_allow_html=True
@@ -79,7 +79,7 @@ def projet():
   st.markdown(
     """
     <br><br>
-    <center><font size='+1'><b> 1 FONCTION </b></font></center>
+    <center><font size='+1'><b> UNE FONCTION </b></font></center>
     <br>
     """
     , unsafe_allow_html=True
@@ -92,7 +92,7 @@ def projet():
   st.markdown(
     """
     <br><br>
-    <center><font size='+1'><b> 1 RÉSEAU DE NEURONES </b></font></center>
+    <center><font size='+1'><b> UN RÉSEAU DE NEURONES </b></font></center>
     <br>
     """
     , unsafe_allow_html=True
@@ -109,9 +109,9 @@ def projet():
     , unsafe_allow_html=True
   )
   col1,col2 = st.columns((1.5, 1))
-  col1.markdown("<center><b> 3 COUCHE DE CONVOLUTION </b></center>", unsafe_allow_html=True)
+  col1.markdown("<center><b> 3 COUCHES DE CONVOLUTION </b></center>", unsafe_allow_html=True)
   col1.image("images/cnn_plus_pool.gif", use_column_width=True)
-  col2.markdown("<center><b> 2 COUCHE DE RÉCURRENCE </b></center>", unsafe_allow_html=True)
+  col2.markdown("<center><b> 2 COUCHES DE RÉCURRENCE </b></center>", unsafe_allow_html=True)
   col2.image("images/rnn.gif", use_column_width=True)
 
 
@@ -121,7 +121,7 @@ def projet():
   st.markdown(
     """
     <br><br>
-    <center><font size='+1'><b> DES DONNÉES </b></font></center>
+    <center><font size='+1'><b> DES DONNÉES AUDIO </b></font></center>
     <br>
     """
     , unsafe_allow_html=True
@@ -141,7 +141,7 @@ def projet():
   st.markdown(
     """
     <br><br>
-    <center><font size='+1'><b> 1 MODÈLE </b></font></center>
+    <center><font size='+1'><b> UN MODÈLE ENTRAINÉE</b></font></center>
     <br>
     """
     , unsafe_allow_html=True
@@ -359,7 +359,7 @@ def ind_stat_sampling(sampling_rate):
           number={'suffix': "kHz"}
       )
   )
-  fig.update_layout(height=height_carac)
+#   fig.update_layout(height=height_carac)
   return(fig)
 
 def ind_stat_nbbits(sampwidth):
@@ -386,7 +386,7 @@ def ind_stat_nbbits(sampwidth):
           }
       )
   )
-  fig.update_layout(height=height_carac)
+#   fig.update_layout(height=height_carac)
   return(fig)
 
 def ind_stat_freq(sampling_rate, samples) :
@@ -408,7 +408,7 @@ def ind_stat_freq(sampling_rate, samples) :
           number={'suffix': "Hz"}
       )
   )
-  fig.update_layout(height=height_carac)
+#   fig.update_layout(height=height_carac)
   return(fig)
 
 def plot_perf(filename):
