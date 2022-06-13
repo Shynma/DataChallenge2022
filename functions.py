@@ -140,7 +140,6 @@ def projet():
     """
     <br><br>
     <center><font size='+1'><b> UN MODÈLE ENTRAINÉE</b></font></center>
-    <br>
     """
     , unsafe_allow_html=True
   )
@@ -154,7 +153,6 @@ def projet():
     """
     <br><br>
     <center><font size='+1'><b> UNE UTILISATION EN TEMPS RÉEL  </b></font></center>
-    <br>
     """
     , unsafe_allow_html=True
   )
