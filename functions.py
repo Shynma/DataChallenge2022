@@ -19,7 +19,7 @@ color_green = '#00E6A2'
 color_orange = '#FFBA00'
 color_red = '#E93B23'
 
-height_carac = 250
+height_carac = 200
 
 
 
@@ -155,7 +155,7 @@ def projet():
   st.markdown(
     """
     <br><br>
-    <center><font size='+1'><b> 1 UTILISATION EN TEMPS RÉEL  </b></font></center>
+    <center><font size='+1'><b> UNE UTILISATION EN TEMPS RÉEL  </b></font></center>
     <br>
     """
     , unsafe_allow_html=True
