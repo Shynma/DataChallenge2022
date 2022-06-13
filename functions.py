@@ -144,7 +144,7 @@ def projet():
     """
     , unsafe_allow_html=True
   )
-  col1, col2, col3 = st.columns((1, 2, 1))
+  col1, col2, col3 = st.columns((1, 1, 1))
   cm = [[0.44, 0.55],
       [0.2, 0.8]]
   fig = confusion_matrix(cm)
