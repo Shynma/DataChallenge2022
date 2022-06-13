@@ -194,7 +194,7 @@ def projet():
   
 def use_case():
   st.image("images/08-Usages.png", use_column_width=True)
-  st.image("images/merci.png", use_column_width=True)
+  st.image("images/09-Merci-fin.png", use_column_width=True)
 
   
 ############################################################################################################################################ 
