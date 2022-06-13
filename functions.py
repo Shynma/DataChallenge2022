@@ -20,7 +20,7 @@ color_orange = '#FFBA00'
 color_red = '#E93B23'
 
 # height_carac = 200
-marge = 20
+marge = 50
 
 
 
