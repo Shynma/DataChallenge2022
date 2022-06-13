@@ -140,6 +140,7 @@ def projet():
     """
     <br><br>
     <center><font size='+1'><b> UN MODÈLE ENTRAINÉE</b></font></center>
+    <br>
     """
     , unsafe_allow_html=True
   )
@@ -449,6 +450,7 @@ def confusion_matrix(cm):
        "xaxis": {"title": "Valeur prédite"}
       , "yaxis": {"title": "Valeur réelle"}
       , "annotations": annotations
+      , "margin" : {"t" : 0}
       # , 'title_x' : 0.5
       # , 'title_font_color' : 'gray'
       # , 'title_font_size' : 20
