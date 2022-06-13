@@ -20,6 +20,7 @@ color_orange = '#FFBA00'
 color_red = '#E93B23'
 
 # height_carac = 200
+marge = 20
 
 
 
@@ -359,7 +360,7 @@ def ind_stat_sampling(sampling_rate):
           number={'suffix': "kHz"}
       )
   )
-  fig.update_layout(margin={'t': 0,'l':10,'b':0,'r':10}) #height=height_carac,
+  fig.update_layout(margin={'t': 0,'l':marge,'b':0,'r':marge}) #height=height_carac,
   return(fig)
 
 def ind_stat_nbbits(sampwidth):
@@ -386,7 +387,7 @@ def ind_stat_nbbits(sampwidth):
           }
       )
   )
-  fig.update_layout(margin={'t': 0,'l':10,'b':0,'r':10}) #height=height_carac,
+  fig.update_layout(margin={'t': 0,'l':marge,'b':0,'r':marge}) #height=height_carac,
   return(fig)
 
 def ind_stat_freq(sampling_rate, samples) :
@@ -408,7 +409,7 @@ def ind_stat_freq(sampling_rate, samples) :
           number={'suffix': "Hz"}
       )
   )
-  fig.update_layout(margin={'t': 0,'l':10,'b':0,'r':10}) #height=height_carac,
+  fig.update_layout(margin={'t': 0,'l':marge,'b':0,'r':marge}) #height=height_carac,
   return(fig)
 
 def plot_perf(filename):
