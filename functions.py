@@ -19,7 +19,7 @@ color_green = '#00E6A2'
 color_orange = '#FFBA00'
 color_red = '#E93B23'
 
-marge = 100
+marge = 50
 
 
 ##############################################
@@ -31,15 +31,10 @@ def intro():
 
 def projet():
   st.image("images/03-ProjectDFG.png", use_column_width=True)
-  st.image("images/04-TitreAudio1.png", use_column_width=True)
+  st.image("images/04-schema-01.png", use_column_width=True)
+  st.image("images/04-schema-02.png", use_column_width=True)
   
-  st.markdown(
-    """
-    <center><font size='+1'><b> QUATRE PARAMÈTRES </b></font></center>
-    <br>
-    """
-    , unsafe_allow_html=True
-  )
+  st.markdown("<br>", unsafe_allow_html=True)
   col1, col2, col3, col4 = st.columns((3, 1, 1, 3))
   freq = col2.slider(
       "Fréquence (Hz)" # nombre d’oscillations par seconde 
@@ -74,56 +69,28 @@ def projet():
   fig = demo_sampling_precision(sampling, precision)
   col4.plotly_chart(fig, use_container_width = True)
   
-  st.markdown(
-    """
-    <br><br>
-    <center><font size='+1'><b> UNE FONCTION </b></font></center>
-    <br>
-    """
-    , unsafe_allow_html=True
-  )
-  col1,col2,col3 = st.columns((1, 2.5, 1))
+  st.markdown("<br><br><br>", unsafe_allow_html=True)
+  st.image("images/04-schema-03.png", use_column_width=True)
+  st.markdown("<br><br><br>", unsafe_allow_html=True)
+  col1,col2,col3 = st.columns((1, 3.5, 1))
   col2.image("images/Continuous_wavelet_transform.gif", use_column_width=True)
 
-
-  
-  st.markdown(
-    """
-    <br><br>
-    <center><font size='+1'><b> UN RÉSEAU DE NEURONES </b></font></center>
-    <br>
-    """
-    , unsafe_allow_html=True
-  )
+  st.markdown("<br><br><br><br>", unsafe_allow_html=True)
+  st.image("images/04-schema-04.png", use_column_width=True)
   col1,col2,col3 = st.columns((1, 2, 1))
   col2.image("images/feed-forward-neural-network.gif", use_column_width=True)
 
-  st.markdown(
-    """
-    <br><br>
-    <center><font size='+1'><b> COMPOSÉ DE ... </b></font></center>
-    <br>
-    """
-    , unsafe_allow_html=True
-  )
+  st.markdown("<br><br><br>", unsafe_allow_html=True)
+  st.image("images/04-schema-05.png", use_column_width=True)
   col1,col2 = st.columns((1.5, 1))
-  col1.markdown("<center><b> 3 COUCHES DE CONVOLUTION </b></center>", unsafe_allow_html=True)
   col1.image("images/cnn_plus_pool.gif", use_column_width=True)
-  col2.markdown("<center><b> 2 COUCHES DE RÉCURRENCE </b></center>", unsafe_allow_html=True)
   col2.image("images/rnn.gif", use_column_width=True)
 
 
 
-  st.markdown("<br><br><br>", unsafe_allow_html=True)
-  st.image("images/05-TitreAudio2.png", use_column_width=True)
-  st.markdown(
-    """
-    <br><br>
-    <center><font size='+1'><b> DES DONNÉES AUDIO </b></font></center>
-    <br>
-    """
-    , unsafe_allow_html=True
-  )
+  st.markdown("<br><br><br><br>", unsafe_allow_html=True)
+  st.image("images/05-schemaPratique-01.png", use_column_width=True)
+  st.image("images/05-schemaPratique-02.png", use_column_width=True)
   # Statistique générale
   col1, col2 = st.columns((1, 1))
   fig1 = globale_stat()
@@ -136,27 +103,16 @@ def projet():
   fig = globale_boxplot()
   col2.plotly_chart(fig,use_container_width=True)
 
-  st.markdown(
-    """
-    <br><br>
-    <center><font size='+1'><b> UN MODÈLE ENTRAINÉE</b></font></center>
-    <br>
-    """
-    , unsafe_allow_html=True
-  )
+  st.markdown("<br>", unsafe_allow_html=True)
+  st.image("images/05-schemaPratique-03.png", use_column_width=True)
   col1, col2, col3 = st.columns((1, 2, 1))
   cm = [[0.45, 0.55],
       [0.2, 0.8]]
   fig = confusion_matrix(cm)
   col2.plotly_chart(fig,use_container_width=True)
 
-  st.markdown(
-    """
-    <br><br>
-    <center><font size='+1'><b> UNE UTILISATION EN TEMPS RÉEL  </b></font></center>
-    """
-    , unsafe_allow_html=True
-  )
+  st.markdown("<br><br>", unsafe_allow_html=True)
+  st.image("images/06-titretest.png", use_column_width=True)
   col1, col2, col3 = st.columns((1, 1, 1))
   option = col2.selectbox("",('Audio 1', 'Audio 2', 'Audio 3'))
   if option == 'Audio 1': 
@@ -194,7 +150,7 @@ def projet():
   
 def use_case():
   st.image("images/08-Usages.png", use_column_width=True)
-  st.image("images/09-Merci-fin.png", use_column_width=True)
+  st.image("images/09-Merci-fin.png", use_column_width=True,)
 
   
 ############################################################################################################################################ 
@@ -287,7 +243,7 @@ def globale_stat():
   trace1 = go.Indicator(
           mode = "number",
           value = base_sun['nb audios'].sum(),
-          title = {'text': "<span style='font-size:0.8em;color:gray'>Nombre d'audio</span>"},
+          title = {'text': "<span style='font-size:0.8em;color:gray'>Nombre de fichiers audio</span>"},
           domain={'x': [0.0, 1], 'y': [0.60, 1]},
           number = {"font":{"size":100}}
       )

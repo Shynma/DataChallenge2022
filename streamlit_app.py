@@ -23,36 +23,13 @@ def run():
     #demo_name = st.sidebar.selectbox("Menu", list(DEMOS.keys()), 0)
     #demo = DEMOS[demo_name]
     #demo()
-    st.image("images/banniere_vivatech.png", use_column_width=True)
+    st.image("images/1920x1080-newheader-Dataforgood.jpg", use_column_width=True)
     functions.intro()
     functions.projet()
     functions.use_case()
 
 
+
 # Lancement de l'application
 if __name__ == "__main__":
-#     st.markdown(
-#         """
-#         <style>
-#         @font-face {
-#             font-family: Roboto;
-#             src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
-#             font-weight: normal;
-#             font-style: normal;
-
-#         }
-
-#         h1  {
-#             font-family: 'Roboto', sans-serif;
-#             font-size: 48px;
-#             color : #00A8FF;
-#         }
-
-#         html, body, [class*="css"]  {
-#             font-family: 'Roboto', sans-serif;
-#         }
-#         </style>
-#         """
-#         , unsafe_allow_html=True
-#     )
     run()
