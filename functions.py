@@ -83,7 +83,9 @@ def projet():
   st.markdown("<br><br><br>", unsafe_allow_html=True)
   st.image("images/04-schema-05.png", use_column_width=True)
   col1,col2 = st.columns((1.5, 1))
+  col1.markdown("<span style='color:gray'><center>Trois couches de convolution</center></span>", unsafe_allow_html=True)
   col1.image("images/cnn_plus_pool.gif", use_column_width=True)
+  col2.markdown("<span style='color:gray'><center>Deux couches de récurrence</center></span>", unsafe_allow_html=True)
   col2.image("images/rnn.gif", use_column_width=True)
 
 
