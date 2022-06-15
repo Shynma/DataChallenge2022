@@ -118,11 +118,11 @@ def projet():
   col1, col2, col3 = st.columns((1, 1, 1))
   option = col2.selectbox("",('Audio 1', 'Audio 2', 'Audio 3'))
   if option == 'Audio 1': 
-    file_name = "data/00cc9afb-40da-4ca3-a4fe.wav"
+    file_name = "data/b1833694-3895-403d-9d61.wav"
   elif option == 'Audio 2':
-    file_name = "data/0a0b783d-f9a3-4652-a01d.wav"
+    file_name = "data/grive_musicienne.wav"
   elif option == 'Audio 3' :
-    file_name = "data/0a4e8000-574c-46b8-a847.wav"
+    file_name = "data/e0d1dcb3-2067-4b66-b4b4.wav"
   else :
     file_name = ""
   
